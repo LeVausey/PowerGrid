@@ -1,2 +1,2 @@
 # PowerGrid
-Masters Research Ciode
+Masters Research Code
