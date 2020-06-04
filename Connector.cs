@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class Connector
 {
-    string name;
+    public string Connection { get; set; }
 
+    public City From;
+    public City To;
 
-    public Connector(string name)
-    {
-        this.name = name;
-    }
-
-    //public notInUseConnector (string name)
-    //{
-    //    this.name = name;
-    //}
+    City target;
+    double weight;
 }
 
 public class ConnectorCost

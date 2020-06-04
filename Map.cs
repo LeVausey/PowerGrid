@@ -14,6 +14,8 @@ public class Map : MonoBehaviour
 
         List<City> cities = new List<City>();
 
+        List<Connector> connectors = new List<Connector>();
+
         List<string> lines = File.ReadAllLines(filePath).ToList();
 
         foreach (var line in lines)
@@ -22,26 +24,53 @@ public class Map : MonoBehaviour
 
             City newCity = new City();
 
+            Connector newConnector = new Connector();
+
             newCity.CityName = entries[0];
-            newCity.SectorName = entries[1];
+            newCity.SectorNum = entries[1];
+            newConnector.Connection = entries[2];
 
             cities.Add(newCity);
+            connectors.Add(newConnector);
         }
 
         foreach (var city in cities)
-            Debug.Log($"{city.CityName} {city.SectorName}");
+            Debug.Log($"{city.CityName} {city.SectorNum}");
+
+        foreach (var connector in connectors)
+            Debug.Log($"{connector.Connection}");
 
         Console.ReadLine();
     }
+    
+    private IList<HashSet<int>> _connectors;
 
-    //public Map(){
-    //    Cities = new List<City>();
-    //    Connectors = new List<Connector>();
-    //}
+    public int City { get; private set; }
 
-    //public List<City> Cities { get; private set; }
-    //public List<Connector> Connectors { get; private set; }
+    public List<Connector> connectors { get; private set; }
 
+
+    public Map(int numCities, IList<Tuple<int, int>> connectors)
+    {
+        City = numCities;
+        _connectors = new List<HashSet<int>>(numCities);
+        for (int i = 0; i < numCities; i++)
+        {
+            _connectors.Add(new HashSet<int>());
+        }
+
+        foreach (var connector in connectors)
+        {
+            _connectors[connector.Item1].Add(connector.Item2);
+            _connectors[connector.Item2].Add(connector.Item1);
+        }
+    }
+
+    public IEnumerable<int> Neighbours(int city)
+    {
+        return _connectors[city];
+    }
 }
+
 
 
