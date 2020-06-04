@@ -7,34 +7,37 @@ public class City
     /// <summary>
     /// A city has a name
     /// </summary>
-    string name;
+   public string CityName { get; set; }
+   public string SectorName { get; set; }
+
+
 
     /// <summary>
     /// A city can be connected to other ones
-    /// </summary>
-    List<City> connectedCities;
-    List<Sector> sector;
-    List<BuildingSlot> buildingSlots = new List<BuildingSlot>();
+    ///// </summary>
+    //List<City> connectedCities;
+    //List<Sector> sector;
+    //List<BuildingSlot> buildingSlots = new List<BuildingSlot>();
     //buildingSlots.Add(new BuildingSlot(10));
 
-    /// <summary>
-    /// Makes a new city with a given name
-    /// </summary>
-    /// <param name="name"></param>
-    public City(string name)
-    {
-        this.name = name;
-    }
+    ///// <summary>
+    ///// Makes a new city with a given name
+    ///// </summary>
+    ///// <param name="name"></param>
+    //public City(string CityName)
+    //{
+    //    this.CityName = CityName;
+    //}
 
-    /// <summary>
-    /// Connects this city with another city
-    /// </summary>
-    /// <param name="city"></param>
-    public void ConnectTo(City city)
-    {
-        this.connectedCities.Add(city);
-        city.connectedCities.Add(this);
-    }
+    ///// <summary>
+    ///// Connects this city with another city
+    ///// </summary>
+    ///// <param name="city"></param>
+    //public void ConnectTo(City city)
+    //{
+    //    this.connectedCities.Add(city);
+    //    city.connectedCities.Add(this);
+    //}
 
 }
 
@@ -43,30 +46,30 @@ public class Sector
     /// <summary>
     /// A sector, district or state, a superset of cities
     /// </summary>
-    string name;
+    
 
-    /// <summary>
-    /// A sector has a list of "nodes" which are the cities within it
-    /// </summary>
-    List<City> cities;
+    ///// <summary>
+    ///// A sector has a list of "nodes" which are the cities within it
+    ///// </summary>
+    //List<City> cities;
 
-    /// <summary>
-    /// Makes a new sector with a given name
-    /// </summary>
-    /// <param name="name"></param>
-    public Sector(string name)
-    {
-        this.name = name;
-    }
+    ///// <summary>
+    ///// Makes a new sector with a given name
+    ///// </summary>
+    ///// <param name="name"></param>
+    //public Sector(string name)
+    //{
+    //    this.name = name;
+    //}
 
-    /// <summary>
-    /// Adds a city to the list of cities for this sector
-    /// </summary>
-    /// <param name="city"></param>
-    public void AddNode(City city)
-    {
-        cities.Add(city);
-    }
+    ///// <summary>
+    ///// Adds a city to the list of cities for this sector
+    ///// </summary>
+    ///// <param name="city"></param>
+    //public void AddNode(City city)
+    //{
+    //    cities.Add(city);
+    //}
 }
 
 public class BuildingSlot

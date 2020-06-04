@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Connector 
+public class Connector
 {
     string name;
+
 
     public Connector(string name)
     {
         this.name = name;
     }
 
-    public notInUseConnector (string name)
-    {
-        this.name = name;
-    }
+    //public notInUseConnector (string name)
+    //{
+    //    this.name = name;
+    //}
 }
 
 public class ConnectorCost

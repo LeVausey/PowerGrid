@@ -6,45 +6,42 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class Map
+public class Map : MonoBehaviour
 {
-   static void LoadInMap (string[] args)
+    void Start()
     {
-        //string filePath = @"C:\Demos\Test.txt";
+        string filePath = @"C:\Users\Jacob\Documents\Masters\PowerGrid\PowerGrid\Assets\Scripts\Test.txt";
 
-        //List<string> lines = File.ReadAllLines(filePath).ToList;
+        List<City> cities = new List<City>();
 
-        //foreach (string line in lines)
-        //{
-        //    Console.WriteLine(line);
-        //}
+        List<string> lines = File.ReadAllLines(filePath).ToList();
 
-        //File.WriteAllLines(filePath, lines);
+        foreach (var line in lines)
+        {
+            string[] entries = line.Split(',');
+
+            City newCity = new City();
+
+            newCity.CityName = entries[0];
+            newCity.SectorName = entries[1];
+
+            cities.Add(newCity);
+        }
+
+        foreach (var city in cities)
+            Debug.Log($"{city.CityName} {city.SectorName}");
 
         Console.ReadLine();
     }
 
-    //public Graph (List<Connector> connectors, List<City> cities)
-    //{
-
+    //public Map(){
+    //    Cities = new List<City>();
+    //    Connectors = new List<Connector>();
     //}
 
-    static void Main(string[] args)
-    {
-        //Make two new sectors: illinois and california
-        var illinois = new Sector("Illinois");
-        var california = new Sector("California");
+    //public List<City> Cities { get; private set; }
+    //public List<Connector> Connectors { get; private set; }
 
-        //Add two cities to illinois
-        //illinois.AddNode(new City("Bloomington"));
-        //illinois.AddNode(new City("Chicago"));
-
-        var cities = new List<City>();
-        //var connectors = new List<Connectors>();
-        var sector = new List<Sector>();
-        //sectors.Add(illinois);
-        //sectors.Add(california);
-    }
 }
 
 
