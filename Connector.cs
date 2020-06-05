@@ -16,12 +16,12 @@ public class Connector
 public class ConnectorCost
 {
     /// <summary>
-    /// The price of this slot
+    /// The price of the connector
     /// </summary>
     public int price;
 
     /// <summary>
-    /// Creates a building slot
+    /// Creates a connector
     /// </summary>
     /// <param name="price"></param>
     public ConnectorCost(int price)

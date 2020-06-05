@@ -8,13 +8,13 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    void Start()
+	public List<City> cities = new List<City>();
+
+	public List<Connector> connectors = new List<Connector>();
+
+	void Start()
     {
         string filePath = @"C:\Users\Jacob\Documents\Masters\PowerGrid\PowerGrid\Assets\Scripts\Test.txt";
-
-        List<City> cities = new List<City>();
-
-        List<Connector> connectors = new List<Connector>();
 
         List<string> lines = File.ReadAllLines(filePath).ToList();
 
@@ -42,35 +42,57 @@ public class Map : MonoBehaviour
 
         Console.ReadLine();
     }
-    
-    private IList<HashSet<int>> _connectors;
 
-    public int City { get; private set; }
-
-    public List<Connector> connectors { get; private set; }
-
-
-    public Map(int numCities, IList<Tuple<int, int>> connectors)
+    public Map(int numCities, int numConnectors)
     {
-        City = numCities;
-        _connectors = new List<HashSet<int>>(numCities);
-        for (int i = 0; i < numCities; i++)
-        {
-            _connectors.Add(new HashSet<int>());
-        }
-
-        foreach (var connector in connectors)
-        {
-            _connectors[connector.Item1].Add(connector.Item2);
-            _connectors[connector.Item2].Add(connector.Item1);
-        }
+        cities = new int[numCities + 1];
+        cities[cities.Length - 1] = numConnectors;
+        connector = new int[numConnectors];
     }
+	int connectorTotal;
 
-    public IEnumerable<int> Neighbours(int city)
-    {
-        return _connectors[city];
-    }
+	public MapBuider()
+	{
+		cities = new List<City>();
+	}
+
+
+	//	Start a new node.
+	public void NewCity()
+	{
+		cities.Add(new List<City>());
+	}
+
+	public void AddConnector(params int[] targetCities)
+	{
+		List<City> currCities = (List<City>)cities[cities.Count - 1];
+
+		for (int i = 0; i < targetCities.Length; i++)
+		{
+			currCities.Add(targetCities[i]);
+		}
+
+		connectorTotal += targetCities.Length;
+	}
+
+
+	//	Build a Map from the temporary graph contained by the builder.
+	public Map Build()
+	{
+		Map result = new Map(cities.Count, connectorTotal);
+		int currConnector = 0;
+
+		for (int i = 0; i < cities.Count; i++)
+		{
+			result.cities[i] = currConnector;
+			List<City> currConnector = (ArrayList)nodes[i];
+			currCities.CopyTo(result.connector, currConnector);
+			currConnector += currCities.Count;
+		}
+
+		return result;
+	}
+
 }
-
 
 

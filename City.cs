@@ -10,15 +10,17 @@ public class City
     public string CityName { get; set; }
     public string SectorNum { get; set; }
 
+    public int[] city { get; set; }
+    public int[] sector { get; set; }
+
     /// <summary>
     /// A city can be connected to other ones
     ///</summary>
     List<City> connectedCities;
 
-    List<Sector> sector;
+    List<Sector> sectors;
 
     List<BuildingSlot> buildingSlots;
-    //buildingSlots.Add(new BuildingSlot(10));
 
     public List<Connector> ConnectorsIn;
     public List<Connector> ConnectorsOut;
@@ -46,7 +48,7 @@ public class Sector
     /// Adds a city to the list of cities for this sector
     /// </summary>
     /// <param name="city"></param>
-    public void AddNode(City city)
+    public void AddCity(City city)
     {
         cities.Add(city);
     }
