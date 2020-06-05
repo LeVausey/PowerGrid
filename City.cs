@@ -8,10 +8,9 @@ public class City
     /// A city has a name
     /// </summary>
     public string CityName { get; set; }
-    public string SectorNum { get; set; }
 
-    public int[] city { get; set; }
-    public int[] sector { get; set; }
+    public string SectorNum { get; set; }
+    public Sector sector;
 
     /// <summary>
     /// A city can be connected to other ones
@@ -87,7 +86,7 @@ public class BuildingSlot
     //public bool SetBuildingSlot(int buildingSlotIndex, int amountOfCurrentMoney)
     //{
     //    //Get the building slot at this index
-    //    var buildingSlot = buildingSlots[buildingSlotIndex];
+    //    var buildingSlots = buildingSlots[buildingSlotIndex];
 
     //    //Do they have enough money to buy this slot? If not, then
     //    //return false

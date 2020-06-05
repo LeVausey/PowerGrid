@@ -20,18 +20,33 @@ public class Map : MonoBehaviour
 
         foreach (var line in lines)
         {
-            string[] entries = line.Split(',');
+			//The entries
+			string[] entries = line.Split(',');
 
-            City newCity = new City();
+			//The number of cities in this line (entry count - 2)
+			int connectedCityCount = entries.Length - 2;
 
-            Connector newConnector = new Connector();
+			//Make a new city for this line
+			City newCity = new City();
 
             newCity.CityName = entries[0];
             newCity.SectorNum = entries[1];
-            newConnector.Connection = entries[2];
 
-            cities.Add(newCity);
-            connectors.Add(newConnector);
+			for (int i = 2; i < connectedCityCount; i++)
+			{
+				//We're running from 2 (skip 0, and 1, because they're city name + sector number)
+				//because each entry here is a city which is connected to this one.
+
+				//Make a new connection
+				Connector newConnector = new Connector();
+				newConnector.Connection = entries[i];
+
+				//Add the connection
+				connectors.Add(newConnector);
+			}
+
+
+			cities.Add(newCity);
         }
 
         foreach (var city in cities)
@@ -42,57 +57,6 @@ public class Map : MonoBehaviour
 
         Console.ReadLine();
     }
-
-    public Map(int numCities, int numConnectors)
-    {
-        cities = new int[numCities + 1];
-        cities[cities.Length - 1] = numConnectors;
-        connector = new int[numConnectors];
-    }
-	int connectorTotal;
-
-	public MapBuider()
-	{
-		cities = new List<City>();
-	}
-
-
-	//	Start a new node.
-	public void NewCity()
-	{
-		cities.Add(new List<City>());
-	}
-
-	public void AddConnector(params int[] targetCities)
-	{
-		List<City> currCities = (List<City>)cities[cities.Count - 1];
-
-		for (int i = 0; i < targetCities.Length; i++)
-		{
-			currCities.Add(targetCities[i]);
-		}
-
-		connectorTotal += targetCities.Length;
-	}
-
-
-	//	Build a Map from the temporary graph contained by the builder.
-	public Map Build()
-	{
-		Map result = new Map(cities.Count, connectorTotal);
-		int currConnector = 0;
-
-		for (int i = 0; i < cities.Count; i++)
-		{
-			result.cities[i] = currConnector;
-			List<City> currConnector = (ArrayList)nodes[i];
-			currCities.CopyTo(result.connector, currConnector);
-			currConnector += currCities.Count;
-		}
-
-		return result;
-	}
-
 }
 
 

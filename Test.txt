@@ -1,6 +1,6 @@
 City-1, Sector 1, City-2
-City-2, Sector 2, City-1 City-3
-City-3, Sector 3, City-2 City-4 City-5
-City-4, Sector 4, City-3 City-5
-City-5, Sector 5, City-3 City-4 City-6
+City-2, Sector 2, City-1, City-3
+City-3, Sector 3, City-2, City-4, City-5
+City-4, Sector 4, City-3, City-5,
+City-5, Sector 5, City-3, City-4, City-6
 City-6, Sector 6, City-6

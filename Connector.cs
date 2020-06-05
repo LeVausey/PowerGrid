@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Connector
+public class Connector //edge
 {
     public string Connection { get; set; }
 
@@ -10,7 +10,6 @@ public class Connector
     public City To;
 
     City target;
-    double weight;
 }
 
 public class ConnectorCost
