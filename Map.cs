@@ -14,9 +14,11 @@ public class Map : MonoBehaviour
     public List<City> cities = new List<City>();
     public List<Connector> connectors = new List<Connector>();
 
-    public Transform city;
-    public float explosionRadius = 5.0f;
-    public static int boardSize = 10;
+    public GameObject myPrefab;
+
+    //public Transform target;
+    //public float explosionRadius = 5.0f;
+    //public static int boardSize = 10;
 
 
     void Start()
@@ -24,6 +26,7 @@ public class Map : MonoBehaviour
         string filePath = @"C:\Users\Jacob\Documents\Masters\PowerGrid\PowerGrid\Assets\Scripts\Test.txt";
 
         List<string> lines = File.ReadAllLines(filePath).ToList();
+        int x = 1;
 
         foreach (var line in lines)
         {
@@ -31,10 +34,10 @@ public class Map : MonoBehaviour
             string[] entries = line.Split(',');
 
             //The number of cities in this line (entry count - 2)
-            int connectedCityCount = entries.Length - 2;
+            int connectedCityCount = entries.Length - 0;
 
             //Make a new city for this line
-            City newCity = new City();
+            City newCity = new City(myPrefab, x, 0);
 
             newCity.CityName = entries[0];
             newCity.SectorNum = entries[1];
@@ -52,8 +55,8 @@ public class Map : MonoBehaviour
                 connectors.Add(newConnector);
             }
 
-
             cities.Add(newCity);
+            x++;
         }
 
         foreach (var city in cities)
@@ -65,16 +68,15 @@ public class Map : MonoBehaviour
         Console.ReadLine();
     }
 
-    
 
-    void OnDrawGizmos()
-    {
-            // Draws a black line from this transform to the target
-            Gizmos.color = Color.black;
-            Gizmos.DrawLine(transform.position, city.position);
-            Gizmos.DrawWireSphere(transform.position, explosionRadius);
-            Gizmos.DrawWireCube(transform.position, new Vector2(boardSize * 10, boardSize * 0));
-    }
+    //void OnDrawGizmos()
+    //{
+    //    // Draws a black line from this transform to the target
+    //    Gizmos.color = Color.black;
+    //    Gizmos.DrawLine(transform.position, target.position);
+    //    Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    //    Gizmos.DrawWireCube(transform.position, new Vector2(boardSize * 10, boardSize * 0));
+    //}
 }
 
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class City
+public class City : MonoBehaviour
 {
     /// <summary>
     /// A city has a name
@@ -11,6 +11,16 @@ public class City
 
     public string SectorNum { get; set; }
     public Sector sector;
+
+    //public void SetCityName 
+    //{
+    //    this.name = 
+    //}
+
+    public City (GameObject prefab, int x, int y)
+    {
+        Instantiate(prefab, new Vector3(x, y, 0), Quaternion.identity);
+    }
 
     /// <summary>
     /// A city can be connected to other ones
@@ -33,7 +43,6 @@ public class City
         this.connectedCities.Add(city);
         city.connectedCities.Add(this);
     }
-
 }
 
 public class Sector
