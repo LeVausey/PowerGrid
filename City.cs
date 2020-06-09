@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class City : MonoBehaviour
+public class City : MonoBehaviour //nodes
 {
     /// <summary>
     /// A city has a name
@@ -25,7 +25,7 @@ public class City : MonoBehaviour
     /// <summary>
     /// A city can be connected to other ones
     ///</summary>
-    List<City> connectedCities;
+    public List<string> connectedCities;
 
     List<Sector> sectors;
 
@@ -34,15 +34,15 @@ public class City : MonoBehaviour
     public List<Connector> ConnectorsIn;
     public List<Connector> ConnectorsOut;
 
-    /// <summary>
-    /// Connects this city with another city
-    /// </summary>
-    /// <param name="city"></param>
-    public void ConnectTo(City city)
-    {
-        this.connectedCities.Add(city);
-        city.connectedCities.Add(this);
-    }
+    ///// <summary>
+    ///// Connects this city with another city
+    ///// </summary>
+    ///// <param name="city"></param>
+    //public void ConnectTo(City city)
+    //{
+    //    this.connectedCities.Add(city);
+    //    city.connectedCities.Add(this);
+    //}
 }
 
 public class Sector

@@ -14,12 +14,14 @@ public class Map : MonoBehaviour
     public List<City> cities = new List<City>();
     public List<Connector> connectors = new List<Connector>();
 
-    public GameObject myPrefab;
+    public GameObject myCity;
+
+    public GameObject myConnector;
+
 
     //public Transform target;
     //public float explosionRadius = 5.0f;
     //public static int boardSize = 10;
-
 
     void Start()
     {
@@ -37,7 +39,7 @@ public class Map : MonoBehaviour
             int connectedCityCount = entries.Length - 0;
 
             //Make a new city for this line
-            City newCity = new City(myPrefab, x, 0);
+            City newCity = new City(myCity, x, 0);
 
             newCity.CityName = entries[0];
             newCity.SectorNum = entries[1];
@@ -47,12 +49,13 @@ public class Map : MonoBehaviour
                 //We're running from 2 (skip 0, and 1, because they're city name + sector number)
                 //because each entry here is a city which is connected to this one.
 
-                //Make a new connection
-                Connector newConnector = new Connector();
-                newConnector.Connection = entries[i];
+                ////Make a new connection
+                ////newConnector.Connection = entries[i];
 
-                //Add the connection
-                connectors.Add(newConnector);
+                ////Add the connection
+                ////connectors.Add(newConnector);
+
+                newCity.connectedCities.Add(entries [i]);
             }
 
             cities.Add(newCity);
@@ -62,12 +65,28 @@ public class Map : MonoBehaviour
         foreach (var city in cities)
             Debug.Log($"{city.CityName} {city.SectorNum}");
 
+        foreach (var city in cities)
+        {
+            foreach (var connectedCity in city.connectedCities)
+            {
+                List<City> someCities = cities.Where(aCity => aCity.CityName == connectedCity).ToList();
+                Connector newConnector = new Connector();
+                newConnector.From = city;
+                newConnector.To = someCities.First();
+                city.ConnectorsOut.Add(newConnector);
+                someCities.First().ConnectorsIn.Add(newConnector);
+
+                connectors.Add(newConnector);
+            }
+        }
+        
         foreach (var connector in connectors)
             Debug.Log($"{connector.Connection}");
 
         Console.ReadLine();
     }
 
+   
 
     //void OnDrawGizmos()
     //{
