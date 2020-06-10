@@ -2,65 +2,97 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class City : MonoBehaviour //nodes
+[System.Serializable]
+public class City
 {
     /// <summary>
-    /// A city has a name
+    /// The name of this city.
     /// </summary>
-    public string CityName { get; set; }
+    public string name;
 
-    public string SectorNum { get; set; }
+    /// <summary>
+    /// The sector (as far as im aware, a city can only have one?)
+    /// </summary>
     public Sector sector;
 
-    //public void SetCityName 
-    //{
-    //    this.name = 
-    //}
+    /// <summary>
+    /// The list of cities this city is connected to
+    /// </summary>
+    public List<OutConnection> connections = new List<OutConnection>();
 
-    public City (GameObject prefab, int x, int y)
+    /// <summary>
+    /// The building slots for this city.
+    /// </summary>
+    public List<BuildingSlot> buildingSlots = new List<BuildingSlot>();
+
+    /// <summary>
+    /// Each city has a position
+    /// </summary>
+    public Vector3 position;
+
+    /// <summary>
+    /// Creates a new city with a given name and sector.
+    /// </summary>
+    /// <param name="name">The name of the city.</param>
+    /// <param name="sector">The sector of the city.</param>
+    public City(string name, Sector sector)
     {
-        Instantiate(prefab, new Vector3(x, y, 0), Quaternion.identity);
+        //Set variables
+        this.name = name;
+        this.sector = sector;
+
+        //Setup three default building slots for each city
+        buildingSlots.Add(new BuildingSlot(10));
+        buildingSlots.Add(new BuildingSlot(15));
+        buildingSlots.Add(new BuildingSlot(20));
     }
 
     /// <summary>
-    /// A city can be connected to other ones
-    ///</summary>
-    public List<string> connectedCities;
+    /// Creates a new city with a given name and sector.
+    /// </summary>
+    /// <param name="name">The name of the city.</param>
+    /// <param name="sector">The sector of the city.</param>
+    public City(string name, Sector sector, Vector2 position)
+    {
+        //Set variables
+        this.name = name;
+        this.sector = sector;
 
-    List<Sector> sectors;
+        //Position
+        this.position = new Vector3(position.x, 0, position.y);
 
-    List<BuildingSlot> buildingSlots;
-
-    public List<Connector> ConnectorsIn;
-    public List<Connector> ConnectorsOut;
-
-    ///// <summary>
-    ///// Connects this city with another city
-    ///// </summary>
-    ///// <param name="city"></param>
-    //public void ConnectTo(City city)
-    //{
-    //    this.connectedCities.Add(city);
-    //    city.connectedCities.Add(this);
-    //}
+        //Setup three default building slots for each city
+        buildingSlots.Add(new BuildingSlot(10));
+        buildingSlots.Add(new BuildingSlot(15));
+        buildingSlots.Add(new BuildingSlot(20));
+    }
 }
+
+
 
 public class Sector
 {
     /// <summary>
-    /// A sector has a list of "nodes" which are the cities within it
+    /// A sector just contains a list of cities
     /// </summary>
-    List<City> cities;
+    public List<City> cities = new List<City>();
 
     /// <summary>
-    /// Adds a city to the list of cities for this sector
+    /// The sector name -- not sure if sectors have names
     /// </summary>
-    /// <param name="city"></param>
-    public void AddCity(City city)
+    public string name;
+
+    /// <summary>
+    /// Creates a new sector with a given name
+    /// </summary>
+    /// <param name="name">The name of the sector</param>
+    public Sector(string name)
     {
-        cities.Add(city);
+        this.name = name;
     }
 }
+
+
 
 public class BuildingSlot
 {
@@ -85,27 +117,10 @@ public class BuildingSlot
     }
 
     /// <summary>
-    /// Sets it to purchased
+    /// Sets it to (not) purchased
     /// </summary>
-    public void SetPurchased()
+    public void SetPurchased(bool value)
     {
-        this.purchased = true;
+        this.purchased = value;
     }
-
-    //public bool SetBuildingSlot(int buildingSlotIndex, int amountOfCurrentMoney)
-    //{
-    //    //Get the building slot at this index
-    //    var buildingSlots = buildingSlots[buildingSlotIndex];
-
-    //    //Do they have enough money to buy this slot? If not, then
-    //    //return false
-    //    if (amountOfCurrentMoney < buildingSlot)
-    //        return false;
-
-    //    //Otherwise, at this point, they do.. so buy it:
-    //    buildingSlot.SetPurchased();
-
-    //    //Decrement their money here
-    //    //..
-    //}
 }
