@@ -1,54 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 public class MapTest : MonoBehaviour
 {
-    // [HideInInspector]
-    public Map map;
-
-    private void Start()
+   public Map map;
+ 
+   public void Start()
     {
+        //Map.LoadInMap();
+
         //Make a new map
         map = new Map("lincolnshire", "Assets/data/uk-sectors.dat", "Assets/data/uk-connections.dat");
-
-
-        // LOOPING THROUGH ALL SECTORS + CITIES
-        // ====================================
-
-        // //Lets loop through all the sectors
-        // foreach(var sector in map.sectors)
-        // {
-        //     //Lets loop through all the cities in this sector
-        //     foreach(var city in sector.cities)
-        //         Debug.Log($"Sector {sector.name} has city {city.name}");
-        // }
-
-
-
-        //LOOPING THROUGH ALL CONNECTIONS (globally)
-        //====================================
-
-        //Lets loop through all the connections
-        // foreach(var connection in map.connections)
-        //     Debug.Log($"Connection between {connection.a.name} & {connection.b.name} costs {connection.price}");
-
-
-
-        //LOOPING THROUGH ALL CONNECTIONS OF ONE CITY (locally)
-        //====================================
-
-        // //Lets check all the connections from lincoln
-        // foreach(var connection in map.cityHashMap["Lincoln"].connections)
-        //     Debug.Log($">> Lincoln is connected to {connection.outCity.name}, cost is {connection.price}");
     }
-
-
-
 
     public void OnDrawGizmos()
     {
-        //In editor? gtfo
         if(!Application.isPlaying)
             return;
 
@@ -71,7 +40,7 @@ public class MapTest : MonoBehaviour
 
 
 
-        //Now the trickier bit, drawing connections. First set to a colour
+        //set to a colour
         Gizmos.color = Color.green;
 
         foreach(var connection in map.connections)
