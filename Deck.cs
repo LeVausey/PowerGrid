@@ -10,6 +10,10 @@ public class Deck : MonoBehaviour
 
     public List<Card> deck;
     public List<Card> drawedCards;
+    public List<Coal> coalAmount;
+    public List<Oil> oilAmount;
+    public List<Garbage> garbageAmount;
+    public List<Nuclear> nuclearAmout;
 
     void Start()
     {
@@ -70,34 +74,34 @@ public class Deck : MonoBehaviour
 
         //////Print them out to test
         //foreach (var card in drawedCards)
-        //       Debug.Log(card);
+        //      Debug.Log(card);
 
 
         //Debug.Log("Deck cards:");
 
         //////Print them out to test
         //foreach (var card in deck)
-        //   Debug.Log(card);
+        //     Debug.Log(card);
 
-        string path = @"C:\Users\Jacob\Documents\Masters\MyTest.txt";
-        if (!File.Exists(path))
-        {
-            // Create a file to write to.
-            using (StreamWriter sw = File.CreateText(path))
-            {
+        //string path = @"C:\Users\Jacob\Documents\Masters\MyTest.txt";
+        //if (!File.Exists(path))
+        //{
+        //    // Create a file to write to.
+        //    using (StreamWriter sw = File.CreateText(path))
+        //    {
                 
-            }
-        }
+        //    }
+        //}
 
-        // Open the file to read from.
-        using (StreamReader sr = File.OpenText(path))
-        {
-            string s;
-            while ((s = sr.ReadLine()) != null)
-            {
-                Console.WriteLine(s);
-            }
-        }
+        //// Open the file to read from.
+        //using (StreamReader sr = File.OpenText(path))
+        //{
+        //    string s;
+        //    while ((s = sr.ReadLine()) != null)
+        //    {
+        //        Console.WriteLine(s);
+        //    }
+        //}
 
     }
 
