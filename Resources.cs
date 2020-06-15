@@ -9,7 +9,8 @@ public class Resources
 
 public class Coal
 {
-    public int faceValue;
+    public int faceValue { get; set; }
+    public bool availible { get; set;}
 
     public Coal(int faceValue)
     {
