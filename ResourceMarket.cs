@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using UnityEngine;
 using System.Linq;
+using System.Diagnostics;
 
 public class ResourceMarket : MonoBehaviour
 {
@@ -26,8 +27,7 @@ public class ResourceMarket : MonoBehaviour
         //getting the nuclear amount 
         nuclear = getNuclear();
 
-
-
+       
     }
 
     private List<Coal> getCoal()
@@ -39,7 +39,8 @@ public class ResourceMarket : MonoBehaviour
         {
             decimal tempD = Math.Ceiling(i / 3);
             int tempInt = (int)tempD;
-            tempList.Add(new Coal((int)tempD));
+            tempList.Add(new Coal((int)tempD, true));
+            //UnityEngine.Debug.Log(tempD);
         }
         //Return the list 
         return tempList;
@@ -54,7 +55,13 @@ public class ResourceMarket : MonoBehaviour
         {
             decimal tempD = Math.Ceiling(i / 3);
             int tempInt = (int)tempD;
-            tempList.Add(new Coal((int)tempD));
+            bool tempB;
+            if (i < 7)
+                tempB = false;
+            else
+                tempB = true;
+            tempList.Add(new Oil((int)tempD, tempB));
+            //UnityEngine.Debug.Log("val="+tempD+"bool:"+tempB);
         }
 
         //Return the list 
@@ -70,7 +77,13 @@ public class ResourceMarket : MonoBehaviour
         {
             decimal tempD = Math.Ceiling(i / 3);
             int tempInt = (int)tempD;
-            tempList.Add(new Coal((int)tempD));
+            bool tempB;
+            if (i < 16)
+                tempB = false;
+            else
+                tempB = true;
+            tempList.Add(new Garbage((int)tempD, tempB));
+            //UnityEngine.Debug.Log(tempD);
         }
 
         //Return the list 
@@ -82,12 +95,23 @@ public class ResourceMarket : MonoBehaviour
         List<Nuclear> tempList = new List<Nuclear>();
 
         //Add 12 nuclear
-        for (decimal i = 1; i <= 24; i++)
+        for (decimal i = 1; i <= 8; i++)
         {
-            decimal tempD = Math.Ceiling(i / 3);
+            decimal tempD = Math.Ceiling(i / 1);
             int tempInt = (int)tempD;
-            tempList.Add(new Coal((int)tempD));
+            bool tempB;
+            if (i < 8)
+                tempB = false;
+            else
+                tempB = true;
+            tempList.Add(new Nuclear((int)tempD, tempB));
+            //UnityEngine.Debug.Log(tempD);
         }
+
+        tempList.Add(new Nuclear(10, true));
+        tempList.Add(new Nuclear(12, true));
+        tempList.Add(new Nuclear(14, true));
+        tempList.Add(new Nuclear(16, true));
 
         //Return the list 
         return tempList;
