@@ -11,7 +11,7 @@ public class City
     public string name;
 
     /// <summary>
-    /// The sector (as far as im aware, a city can only have one?)
+    /// The sector 
     /// </summary>
     public Sector sector;
 
@@ -78,7 +78,7 @@ public class Sector
     public List<City> cities = new List<City>();
 
     /// <summary>
-    /// The sector name -- not sure if sectors have names
+    /// The sector name 
     /// </summary>
     public string name;
 
