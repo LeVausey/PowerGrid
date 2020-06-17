@@ -97,24 +97,25 @@ using System.IO;
             while ((line = reader.ReadLine()) != null) yield return line;
         }
 
-        public static IEnumerable<T> Traverse<T>(this IEnumerable<T> enumerable, Func<T, IEnumerable<T>> recursivePropertySelector)
+
+    //Transitive closure
+    public static IEnumerable<T> Closure<T>(T root, Func<T, IEnumerable<T>> children)
+    {
+        var seen = new HashSet<T>();
+        var stack = new Stack<T>();
+        stack.Push(root);
+
+        while (stack.Count != 0)
         {
-            var stack = new Stack<IEnumerable<T>>();
-            stack.Push(enumerable);
-            while (stack.Count != 0)
-            {
-                enumerable = stack.Pop();
-                foreach (T item in enumerable)
-                {
-                    yield return item;
-                    var seqRecurse = recursivePropertySelector(item);
-                    if (seqRecurse != null)
-                    {
-                        stack.Push(seqRecurse);
-                    }
-                }
-            }
+            T item = stack.Pop();
+            if (seen.Contains(item))
+                continue;
+            seen.Add(item);
+            yield return item;
+            foreach (var child in children(item))
+                stack.Push(child);
         }
     }
+}
 
 

@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System;
-
+using System.IO;
+using UnityEngine;
+using System.Linq;
+using System.Diagnostics;
 
 public class MapTest : MonoBehaviour
 {
    public Map map;
- 
+   public City city;
+    
    public void Start()
     {
         //Map.LoadInMap();
 
         //Make a new map
-        map = new Map("lincolnshire", "Assets/data/uk-sectors.dat", "Assets/data/uk-connections.dat");
+        map = new Map("green", "Assets/data/uk-sectors.dat", "Assets/data/uk-connections.dat");
     }
 
     public void OnDrawGizmos()
@@ -38,8 +41,6 @@ public class MapTest : MonoBehaviour
         }
 
 
-
-
         //set to a colour
         Gizmos.color = Color.green;
 
@@ -59,5 +60,12 @@ public class MapTest : MonoBehaviour
             //Draw label here
             UnityEditor.Handles.Label(meanPos, $"({connection.price})");
         }
+    }
+
+  
+    public void TraversalTest()
+    {
+        //var cities = new List<City>();
+        //cities.Closure(city => city.ChildNodes).ToList();
     }
 }
