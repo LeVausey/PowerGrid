@@ -5,8 +5,6 @@ using System;
 using System.IO;
 using System.Linq;
 
-
-[System.Serializable]
 public class City
 {
     /// <summary>

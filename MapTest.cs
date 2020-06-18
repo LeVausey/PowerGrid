@@ -4,19 +4,25 @@ using System;
 using System.IO;
 using UnityEngine;
 using System.Linq;
-using System.Diagnostics;
 
 public class MapTest : MonoBehaviour
 {
-   public Map map;
-   public City city;
+    public Map map;
+    public City city;
+    public City myCity;
+
+   
+
     
-   public void Start()
+    public void Start()
     {
         //Map.LoadInMap();
 
         //Make a new map
         map = new Map("green", "Assets/data/uk-sectors.dat", "Assets/data/uk-connections.dat");
+
+        List<City> allCities = map.getCityList();
+        myCity = allCities[0];
     }
 
     public void OnDrawGizmos()
@@ -65,7 +71,24 @@ public class MapTest : MonoBehaviour
   
     public void TraversalTest()
     {
-        //var cities = new List<City>();
-        //cities.Closure(city => city.ChildNodes).ToList();
+        List<City> neighbour = new List<City>();
+        print(myCity.position);
+       
+
+        for (int i = 0; i < myCity.connections.Count; i++)
+        {        
+            if (myCity.connections[i].outCity != myCity)
+            {
+                neighbour.Add(myCity.connections[i].outCity);
+            }
+
+            else
+            {
+                neighbour.Add(myCity.connections[i].outCity);
+            }
+        }
+
+        myCity = neighbour[UnityEngine.Random.Range(0,neighbour.Count)];
+        print(myCity.position);
     }
 }

@@ -2,78 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Dynamic;
 
-[System.Serializable]
-public class Map 
+public class Map
 {
     // [HideInInspector]
-    public Map map;
+   //public Map map;
 
-    //public static void LoadInMap()
-    //{
-    //    //Make a new map
-    //    map = new Map("lincolnshire", "Assets/data/uk-sectors.dat", "Assets/data/uk-connections.dat");
-
-        //string filePath = @"C:\Users\Jacob\Documents\Masters\PowerGrid\PowerGrid\Assets\Scripts\Test.txt";
-
-        //   List<string> lines = File.ReadAllLines(filePath).ToList();
-        //   int x = 1;
-
-        //   foreach (var line in lines)
-        //   {
-        //       //The entries
-        //       string[] entries = line.Split(',');
-
-        //       //The number of cities in this line (entry count - 2)
-        //       int connectedCityCount = entries.Length - 2;
-
-        //       //Make a new city for this line
-        //       City newCity = new City(myCity, x, 0);
-
-        //       newCity.CityName = entries[0];
-        //       newCity.SectorNum = entries[1];
-
-        //       for (int i = 2; i < entries.Length; i++);
-        //       {
-        //           //We're running from 2 (skip 0, and 1, because they're city name + sector number)
-        //           //because each entry here is a city which is connected to this one.
-
-        //           ////Make a new connection
-        //           ////newConnector.Connection = entries[i];
-
-        //           ////Add the connection
-        //           ////connectors.Add(newConnector);
-
-        //           newCity.connectedCities.Add(entries [i]);
-        //       }
-
-        //       cities.Add(newCity);
-        //       x++;
-        //   }
-
-        //   foreach (var city in cities)
-        //       Debug.Log($"{city.CityName} {city.SectorNum}");
-
-        //   foreach (var city in cities)
-        //   {
-        //       foreach (var connectedCity in city.connectedCities)
-        //       {
-        //           List<City> someCities = cities.Where(aCity => aCity.CityName == connectedCity).ToList();
-        //           Connector newConnector = new Connector();
-        //           newConnector.From = city;
-        //           newConnector.To = someCities.First();
-        //           city.ConnectorsOut.Add(newConnector);
-        //           someCities.First().ConnectorsIn.Add(newConnector);
-
-        //           connectors.Add(newConnector);
-        //       }
-        //   }
-
-        //   foreach (var connector in connectors)
-        //       Debug.Log($"{connector.Connection}");
-
-        //   Console.ReadLine();
-    //}
 
 
 
@@ -83,6 +18,11 @@ public class Map
     /// <typeparam name="City"></typeparam>
     /// <returns></returns>
     public List<City> cities = new List<City>();
+
+    public List<City> getCityList()
+    {
+        return cities;
+    }
 
     /// <summary>
     /// A dictionary of string -> city. This is to remove the need for constantly looking up cities with a 

@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Represents an undirected edge in a graph
 /// </summary>
-[System.Serializable]
+
 public class Connector
 {
     /// <summary>
