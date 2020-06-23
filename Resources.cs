@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Resources 
 {
+    public Coal coal;
+
+    public Oil oil;
+
+    public Garbage garbage;
+
+    public Nuclear nuclear;
   
 }
 

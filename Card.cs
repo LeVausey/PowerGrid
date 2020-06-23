@@ -7,13 +7,7 @@ public interface Card
 {
     int getFaceValue();
 
-    string getCoalValue();
-
-    string getOilValue();
-
-    string getGarbageValue();
-
-    string getNuclearValue();
+    string getResourceValue();
 
     bool isStepThree();
 }

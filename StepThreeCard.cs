@@ -21,25 +21,11 @@ public class StepThreeCard : Card
         return true;
     }
 
-    public string getCoalValue()
+    public string getResourceValue()
     {
         return null;
     }
 
-    public string getOilValue()
-    {
-        return null;
-    }
-
-    public string getGarbageValue()
-    {
-        return null;
-    }
-
-    public string getNuclearValue()
-    {
-        return null;
-    }
 
     public override string ToString()
     {

@@ -8,12 +8,21 @@ public class PowerPlantCard : Card
 {
     public int faceValue;
 
-    public string resourceType;
+    public string resource;
 
-    public PowerPlantCard(int faceValue, string resourceType)
+    public bool isHybrid;
+
+    public int powerCities;
+
+    public int resourceRequired;
+
+    public PowerPlantCard(int faceValue, string resource, bool isHybrid, int powerCities, int resourceRequired)
     {
         this.faceValue = faceValue;
-        this.resourceType = resourceType;
+        this.resource = resource;
+        this.isHybrid = isHybrid;
+        this.powerCities = powerCities;
+        this.resourceRequired = resourceRequired;
     }
 
     public int getFaceValue()
@@ -21,26 +30,10 @@ public class PowerPlantCard : Card
         return faceValue;
     }
 
-    public string getCoalValue()
+    public string getResourceValue()
     {
         return null;
     }
-
-    public string getOilValue()
-    {
-        return null;
-    }
-
-    public string getGarbageValue()
-    {
-        return null;
-    }
-
-    public string getNuclearValue()
-    {
-        return null;
-    }
-
 
     public bool isStepThree()
     {
@@ -49,7 +42,7 @@ public class PowerPlantCard : Card
 
     public override string ToString()
     {
-        return $"PowerPlantCard: face value = {faceValue}, resourceType = {resourceType}, isStepThree = {this.isStepThree()}";
+        return $"PowerPlantCard: face value = {faceValue}, isStepThree = {this.isStepThree()}";
     }
 }
 
