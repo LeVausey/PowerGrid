@@ -4,56 +4,56 @@
 #
 # Also, each city has an x and y after the colon.
 
-[Green Sector]
-Flensburg: 30, -5
-Kiel: 28, -3
-Hamburg: 26, -4
-Cuxhaven: 27, -9
-Wilhelmshaven: 26, -11
-Bremen: 22, -8
-Hannover: 20, -4
+[Green]
+Flensburg: -14, 92
+Kiel: -7, 82
+Hamburg: -7, 63
+Cuxhaven: -24, 70
+Wilhelmshaven: -35, 63
+Bremen: -23, 51
+Hannover: -8, 34
 
-[Orange Sector]
-Lucbeck: 27, 1
-Schwerin: 26, 3
-Rostock: 28, 5
-Magdeburg: 20, 4
-Berlin: 21, 6
-Torgelow: 26, 7
-Frankfurt-O: 25, 8
+[Orange]
+Lucbeck: 4, 74
+Schwerin: 14, 62
+Rostock: 23, 78
+Torgelow: 52, 63
+Berlin:	48, 37
+FrankfurtO: 58, 32
+Magdeburg: 20, 32
 
-[Red Sector]
-Osnabruck: 20, -11
-Munster: 18, -13
-Essen: 17, -14
-Duisburg: 17, -15
-Dusseldorf: 16, -14
-Dortmund: 16, -12
-Kassel: 15, -5
+[Red]
+Osnabruck: -34, 35
+Munster: -43, 24
+Kassel: -17, 6
+Dortmund: -41, 9
+Essen: -54, 16
+Duisburg: -64, 17
+Dusseldorf: -60, 4
 
-[Yellow Sector]
-Dresden: 10, 8
-Leipzig: 13, 5
-Halle: 15, 4
-Erfurt: 10, 2 
-Fulda: 8, -3
-Wurzburg: 0, -2
-Nurnberg: -1, 2
+[Yellow]
+Erfurt: 12, -1
+Halle: 23, 12
+Leipzig: 31, 5
+Dresden: 52, -2
+Fulda: -8, -12
+Wurzburg: -6, -32
+Nurnberg: 11, -40
 
-[Blue sector]
-Aachen:12, -15
-Koln: 11, -14
-Trier: 0, - 14
-Wiesbaden: 1, -12
-Frankfurt-M: 2, -11
-Mannheim: -1, -11
-Saarbrucken: -2, -13
+[Blue]
+FrankfurtM: -25, -21
+Wiesbaden: -34, -24
+Koln: -51, -6
+Aachen: -66, -10
+Trier: -59, -32
+Saarbrucken: -46, -47
+Mannheim: -26, -43
 
-[Purple Sector]
-Stuttgart: -5, -10
-Freiburg: -9, -12
-Konstanz: -11, -10
-Augsburg: -6, 1
-Regensburg: -3, 4
-Munchen: -8, 3
-Passau: -6, 6
+[Purple]
+Stuttgart: -22, -59
+Freiburg: -39, -74
+Konstanz: -21, -82
+Augsburg: 3, -64
+Regensburg: 23, -51.4
+Munchen: 18, -74
+Passau: 46, -62
