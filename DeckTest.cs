@@ -7,10 +7,6 @@ public class DeckTest : MonoBehaviour
 {
     public List<Card> deck;
     public List<Card> drawedCards;
-    //public List<Coal> coalAmount;
-    //public List<Oil> oilAmount;
-    //public List<Garbage> garbageAmount;
-    //public List<Nuclear> nuclearAmout;
 
     void Start()
     {
@@ -67,18 +63,18 @@ public class DeckTest : MonoBehaviour
         //Sort the drawed cards
         //drawedCards = drawedCards.OrderBy(x => x.getFaceValue()).ToList();
 
-        Debug.Log("Drawed cards:");
+        //Debug.Log("Drawed cards:");
 
-        ////Print them out to test
-        foreach (var card in drawedCards)
-            Debug.Log(card);
+        //////Print them out to test
+        //foreach (var card in drawedCards)
+        //    Debug.Log(card);
 
 
-        Debug.Log("Deck cards:");
+        //Debug.Log("Deck cards:");
 
-        ////Print them out to test
-        foreach (var card in deck)
-            Debug.Log(card);
+        //////Print them out to test
+        //foreach (var card in deck)
+        //    Debug.Log(card);
 
         //string path = @"C:\Users\Jacob\Documents\Masters\MyTest.txt";
         //if (!File.Exists(path))
