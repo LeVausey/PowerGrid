@@ -19,7 +19,7 @@ public class MapTest : MonoBehaviour
         //Map.LoadInMap();
 
         //Make a new map
-        map = new Map("green", "Assets/data/uk-sectors.dat", "Assets/data/uk-connections.dat");
+        map = new Map("Green", "Assets/data/germany-sectors.dat", "Assets/data/germany-connections.dat");
 
         List<City> allCities = map.getCityList();
         myCity = allCities[0];

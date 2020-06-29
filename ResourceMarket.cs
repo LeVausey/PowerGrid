@@ -4,7 +4,6 @@ using System;
 using System.IO;
 using UnityEngine;
 using System.Linq;
-using System.Diagnostics;
 
 public class ResourceMarket : MonoBehaviour
 {

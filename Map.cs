@@ -9,9 +9,6 @@ public class Map
     // [HideInInspector]
    //public Map map;
 
-
-
-
     /// <summary>
     /// The cities in this map
     /// </summary>
