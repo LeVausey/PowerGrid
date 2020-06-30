@@ -76,26 +76,6 @@ public class DeckTest : MonoBehaviour
         //foreach (var card in deck)
         //    Debug.Log(card);
 
-        //string path = @"C:\Users\Jacob\Documents\Masters\MyTest.txt";
-        //if (!File.Exists(path))
-        //{
-        //    // Create a file to write to.
-        //    using (StreamWriter sw = File.CreateText(path))
-        //    {
-
-        //    }
-        //}
-
-        //// Open the file to read from.
-        //using (StreamReader sr = File.OpenText(path))
-        //{
-        //    string s;
-        //    while ((s = sr.ReadLine()) != null)
-        //    {
-        //        Console.WriteLine(s);
-        //    }
-        //}
-
     }
 
     private List<Card> getDefaultPowerPlantCards()

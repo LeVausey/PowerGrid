@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class Phases : MonoBehaviour
 {
-    public int phase;
+    public int phaseNum;
 
-    //public phaseOneSetPlayerOrder;
-    //public phaseTwoFirstTurnAunction;
-    //public phaseTwoAunction;
-    //public phaseThreeChooseResources;
-    //public phaseThreeBuyResources;
-    //public phaseFourChooseCity;
-    //public phaseFourBuyCity;
-    //public phaseFivePowerCity;
-    //public phaseRestockResources;
+    public bool phase;
+
+    void PhaseOne()
+    {
+        phaseNum = 1;
+        //SetPlayerOrder()
+
+    }
+
+    void PhaseTwo()
+    {
+        phaseNum = 2;
+        //FirstTurnAunction()
+
+        //Aunction()
+    }
+
+    void PhaseThree()
+    {
+        phaseNum = 3;
+        //ChooseResources()
+        //BuyResources()
+    }
+
+    void PhaseFour()
+    {
+        phaseNum = 4;
+    }
+
+    void PhaseFive()
+    {
+        phaseNum = 5;
+
+    }
 }
