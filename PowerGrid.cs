@@ -17,7 +17,9 @@ public class PowerGrid : MonoBehaviour
         SetUpPhase setUp = gameObject.GetComponent<SetUpPhase>();
 
         setUp.SetDeckandMarket();
-
+        setUp.SetFirstTurnPlayerOrder();
+        setUp.SetPlayerElektro();
+        setUp.SetMapPlayerArea();
     }
 
     // Update is called once per frame
