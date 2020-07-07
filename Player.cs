@@ -11,12 +11,20 @@ public class Player : MonoBehaviour
     // // do player's turn actions
     //gM.changeTurn();
     //}
+    
+    //Player owned Resources
+    public List<Coal> playerCoal;
+    public List<Oil> playerOil;
+    public List<Garbage> playerGarbage;
+    public List<Nuclear> playerNuclear;
 
-    public int playerElektro;
+    //Player Elektro
+    public List<Elektro> playerElektro;
 
-    public int playerPowerPlants;
+    //Player owned power plant cards
+    public List<Card> playerPowerPlants;
 
-    public int playerResources;
-
-    public int playerBuildings;
+    //Player owned cities
+    public List<City> playerBuildings;
 }
+

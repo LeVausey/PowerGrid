@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Timers;
+using System.IO;
+using System;
 using UnityEngine;
 
 public class PowerGrid : MonoBehaviour
 {
-    //turnNum turn = 0;
-    public int playerAmount = 0;
+    private static string kTAG = "MyGameTag";
+    private Logger myLogger;
+
+    public int playerAmount = 3;
     public int playerOrder = 0;
+    public int turn = 0;
     public int phase = 1;
     public int step = 1;
 
@@ -19,6 +24,11 @@ public class PowerGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        myLogger = new Logger(new MyLogHandler());
+
+        myLogger.Log(kTAG, "MyGameClass Start.");
+
         map = new Map("Green", "Assets/data/germany-sectors.dat", "Assets/data/germany-connections.dat");
 
         List<City> allCities = map.getCityList();
@@ -35,7 +45,9 @@ public class PowerGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PhaseLoop();
+        StepLoop();
+        Endgame();
     }
    
 
@@ -117,40 +129,76 @@ public class PowerGrid : MonoBehaviour
         myCity = neighbour[UnityEngine.Random.Range(0, neighbour.Count)];
         print(myCity.position);
     }
+
+    public void PhaseLoop()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            // code block to be executed
+
+        }
+
+        turn++;
+    }
+
+    void StepLoop()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            // code block to be executed
+            
+        }
+    }
+
+    void Endgame()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            // code block to be executed
+            
+        }
+    }
+}
+public class Elektro
+{
+    
 }
 
 public class scoringTrack
 {
+    private int currentScore;
+    public Text scoreText;
+    // Use this for initialization
+    void Start()
+    {
+        currentScore = 0;
 
+    }
+
+    private void HandleScore()
+    {
+        scoreText.text = "Score: " + currentScore;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Mean")
+        {
+            currentScore++;
+            HandleScore();
+        }
+    }
 }
 
-public class playerData
+public class MyLogHandler : ILogHandler
 {
+    public void LogFormat(LogType logType, UnityEngine.Object context, string format, params object[] args)
+    {
+        Debug.unityLogger.logHandler.LogFormat(logType, context, format, args);
+    }
 
-}
-
-public class turnNum
-{
-    int turn = 0;
-
-}
-
-public class PhaseLoop
-{
-
-}
-
-public class StepLoop
-{
-
-}
-
-public class EndGame
-{
-
-}
-
-public class Logger
-{
-
+    public void LogException(Exception exception, UnityEngine.Object context)
+    {
+        Debug.unityLogger.LogException(exception, context);
+    }
 }

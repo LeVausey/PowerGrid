@@ -9,39 +9,40 @@ public class Phases : MonoBehaviour
     public bool TurnOrder = true;
     public bool ReverseTurnOrder = true;
 
-    void PhaseOne()
+    void PhaseOne() 
     {
         phaseNum = 1;
         //SetPlayerOrder()
+
 
     }
 
     void PhaseTwo()
     {
         phaseNum = 2;
-        //FirstTurnAunction()
-        if (TurnOrder == true)
-        {
-            TurnOrder = !TurnOrder;// it will take you to the next player
+        ////FirstTurnAunction()
+        //if (TurnOrder == true)
+        //{
+        //    TurnOrder = !TurnOrder;// it will take you to the next player
      
-        }
-        if (TurnOrder == false)
-        {
-            TurnOrder = !TurnOrder;// again taking to 1st player 
+        //}
+        //if (TurnOrder == false)
+        //{
+        //    TurnOrder = !TurnOrder;// again taking to 1st player 
                         
-        }
+        //}
 
-        //Aunction()       
-        if (TurnOrder == true)
-        {
-            TurnOrder = !TurnOrder;// it will take you to the next player
+        ////Aunction()       
+        //if (TurnOrder == true)
+        //{
+        //    TurnOrder = !TurnOrder;// it will take you to the next player
 
-        }
-        if (TurnOrder == false)
-        {
-            TurnOrder = !TurnOrder;// again taking to 1st player 
+        //}
+        //if (TurnOrder == false)
+        //{
+        //    TurnOrder = !TurnOrder;// again taking to 1st player 
 
-        }
+        //}
 
     }
 
@@ -49,16 +50,16 @@ public class Phases : MonoBehaviour
     {
         phaseNum = 3;
         //ChooseResources()
-        if (ReverseTurnOrder == true)
-        {
-            ReverseTurnOrder = !ReverseTurnOrder;// it will take you to the next player
+        //if (ReverseTurnOrder == true)
+        //{
+        //    ReverseTurnOrder = !ReverseTurnOrder;// it will take you to the next player
 
-        }
-        if (ReverseTurnOrder == false)
-        {
-            ReverseTurnOrder = !ReverseTurnOrder;// again taking to 1st player 
+        //}
+        //if (ReverseTurnOrder == false)
+        //{
+        //    ReverseTurnOrder = !ReverseTurnOrder;// again taking to 1st player 
 
-        }
+        //}
 
         //BuyResources()
     }
@@ -67,30 +68,21 @@ public class Phases : MonoBehaviour
     {
         phaseNum = 4;
 
-        if (ReverseTurnOrder == true)
-        {
-            ReverseTurnOrder = !ReverseTurnOrder;// it will take you to the next player
+        //if (ReverseTurnOrder == true)
+        //{
+        //    ReverseTurnOrder = !ReverseTurnOrder;// it will take you to the next player
 
-        }
-        if (ReverseTurnOrder == false)
-        {
-            ReverseTurnOrder = !ReverseTurnOrder;// again taking to 1st player 
+        //}
+        //if (ReverseTurnOrder == false)
+        //{
+        //    ReverseTurnOrder = !ReverseTurnOrder;// again taking to 1st player 
 
-        }
+        //}
     }
 
     void PhaseFive()
     {
         phaseNum = 5;
-        if (TurnOrder == true)
-        {
-            TurnOrder = !TurnOrder;// it will take you to the next player
-
-        }
-        if (TurnOrder == false)
-        {
-            TurnOrder = !TurnOrder;// again taking to 1st player 
-
-        }
+  
     }
 }
