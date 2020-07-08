@@ -12,6 +12,9 @@ public class Steps : MonoBehaviour
     public List<Garbage> garbage;
     public List<Nuclear> nuclear;
 
+    public List<Card> deck;
+    public List<Card> drawedCards;
+
     public void StepOne()
     {
         step = 1;
@@ -28,7 +31,7 @@ public class Steps : MonoBehaviour
         //getting the nuclear amount 
         nuclear = stepOneNuclear();
 
-        //Open building slot 1
+        
     }
 
     public void StepTwo()
@@ -50,6 +53,7 @@ public class Steps : MonoBehaviour
         //Open building slot 2
 
         //Power Plant Market
+        Card extracted = drawedCards.Extract(0);
     }
 
     public void StepThree()
@@ -71,6 +75,7 @@ public class Steps : MonoBehaviour
         //Open building slot 3
 
         //Power Plant Market
+        Card extracted = drawedCards.Extract(0, 1);
     }
 
     private List<Coal> stepOneCoal()

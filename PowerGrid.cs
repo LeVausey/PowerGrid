@@ -21,6 +21,8 @@ public class PowerGrid : MonoBehaviour
     public City city;
     public City myCity;
 
+    public scoringTrack Score;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,11 @@ public class PowerGrid : MonoBehaviour
         PhaseLoop();
         StepLoop();
         Endgame();
+
+        //if (Score >= 17)
+        //{
+        //    Endgame();
+        //}
     }
    
 
@@ -132,10 +139,38 @@ public class PowerGrid : MonoBehaviour
 
     public void PhaseLoop()
     {
-        for (int i = 0; i < 5; i++)
+   
+        Phases phases = gameObject.GetComponent<Phases>();
+
+        for (int phase = 1)
         {
             // code block to be executed
+            phases.PhaseOne();
+        }
 
+
+        for (int phase = 2)
+        {
+            // code block to be executed
+            phases.PhaseTwo();
+        }
+
+        for (int phase = 3)
+        {
+            // code block to be executed
+            phases.PhaseThree();
+        }
+
+        for (int phase = 4)
+        {
+            // code block to be executed
+            phases.PhaseFour();
+        }
+
+        for (int phase = 5)
+        {
+            // code block to be executed
+            phases.PhaseFive();
         }
 
         turn++;
@@ -143,20 +178,32 @@ public class PowerGrid : MonoBehaviour
 
     void StepLoop()
     {
-        for (int i = 0; i < 5; i++)
+
+        Steps steps = gameObject.GetComponent<Steps>();
+
+        for (int step = 1)
         {
             // code block to be executed
-            
+            phases.PhaseOne();
+        }
+
+
+        for (int step = 2)
+        {
+            // code block to be executed
+
+        }
+
+        for (int step = 3)
+        {
+            // code block to be executed
+
         }
     }
 
     void Endgame()
     {
-        for (int i = 0; i < 5; i++)
-        {
-            // code block to be executed
-            
-        }
+      
     }
 }
 public class Elektro
@@ -167,7 +214,7 @@ public class Elektro
 public class scoringTrack
 {
     private int currentScore;
-    public Text scoreText;
+    //public Text scoreText;
     // Use this for initialization
     void Start()
     {
@@ -177,7 +224,7 @@ public class scoringTrack
 
     private void HandleScore()
     {
-        scoreText.text = "Score: " + currentScore;
+        //scoreText.text = "Score: " + currentScore;
     }
 
     void OnCollisionEnter2D(Collision2D col)

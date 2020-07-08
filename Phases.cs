@@ -9,7 +9,16 @@ public class Phases : MonoBehaviour
     public bool TurnOrder = true;
     public bool ReverseTurnOrder = true;
 
-    void PhaseOne() 
+
+    public List<Card> deck;
+    public List<Card> drawedCards;
+
+    public List<Coal> coal;
+    public List<Oil> oil;
+    public List<Garbage> garbage;
+    public List<Nuclear> nuclear;
+
+    public void PhaseOne() 
     {
         phaseNum = 1;
         //SetPlayerOrder()
@@ -17,7 +26,7 @@ public class Phases : MonoBehaviour
 
     }
 
-    void PhaseTwo()
+    public void PhaseTwo()
     {
         phaseNum = 2;
         ////FirstTurnAunction()
@@ -46,7 +55,7 @@ public class Phases : MonoBehaviour
 
     }
 
-    void PhaseThree()
+    public void PhaseThree()
     {
         phaseNum = 3;
         //ChooseResources()
@@ -68,6 +77,7 @@ public class Phases : MonoBehaviour
     {
         phaseNum = 4;
 
+        //buy cities
         //if (ReverseTurnOrder == true)
         //{
         //    ReverseTurnOrder = !ReverseTurnOrder;// it will take you to the next player
