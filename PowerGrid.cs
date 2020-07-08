@@ -63,11 +63,15 @@ public class PowerGrid : MonoBehaviour
             steps.StepThree();
 
         else
-            Endgame();
+            EndGame();
 
 
         //Check if the game has been won:
-        int playerScore = player.playerBuildings.Count();
+        int playerScore = player.playerBuildings.Count;
+
+        //Step Two trigger
+        if (playerScore > 7)
+            step = 2;
 
         //End game if needed
         if (playerScore > 17)
@@ -175,19 +179,19 @@ public class PowerGrid : MonoBehaviour
         turn++;
     }
 
-    public void Endgame()
+    public void EndGame()
     {
       
     }
 
     public bool checkPlayerHasWon()
     {
-        foreach (var player in players)
-        {
-            //Does this player have a score above 17? If they did, they won
-            if (player.playerBuildings.Count() > 17)
-                return true;
-        }
+        //foreach (var player in players)
+        //{
+        //    //Does this player have a score above 17? If they did, they won
+        //    if (player.playerBuildings.Count() > 17)
+        //        return true;
+        //}
 
         //No player had a score over 10: nobody won
         return false;

@@ -8,6 +8,7 @@ public class Phases : MonoBehaviour
     public bool phase;
     public bool TurnOrder = true;
     public bool ReverseTurnOrder = true;
+    public Player player;
 
 
     public List<Card> deck;
@@ -78,6 +79,7 @@ public class Phases : MonoBehaviour
         phaseNum = 4;
 
         //buy cities
+
         //if (ReverseTurnOrder == true)
         //{
         //    ReverseTurnOrder = !ReverseTurnOrder;// it will take you to the next player
@@ -88,6 +90,13 @@ public class Phases : MonoBehaviour
         //    ReverseTurnOrder = !ReverseTurnOrder;// again taking to 1st player 
 
         //}
+
+        // Choose a random city
+        var randomCity = player.FindRandomCity();
+
+        //Buy the random city
+        player.BuyCity(randomCity);
+
     }
 
     public void PhaseFive()
