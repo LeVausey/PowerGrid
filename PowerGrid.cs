@@ -67,7 +67,7 @@ public class PowerGrid : MonoBehaviour
 
 
         //Check if the game has been won:
-        int playerScore = playerBuildings.Count();
+        int playerScore = player.playerBuildings.Count();
 
         //End game if needed
         if (playerScore > 17)
@@ -170,12 +170,12 @@ public class PowerGrid : MonoBehaviour
 
         //Someone's won
         if (won)
-            endGame();
+            EndGame();
 
         turn++;
     }
 
-    void Endgame()
+    public void Endgame()
     {
       
     }
@@ -202,19 +202,20 @@ public class Elektro
 
 public class scoringTrack
 {
-    public List<City> playerBuildings;
-    void Start()
-    {
-        int playerScore = playerBuildings.Count();
-        player.playerBuildings.Count() > 17;
-        if (playerScore > 17)
-                EndGame();
-    }
+//    public List<City> playerBuildings;
 
-    private void HandleScore()
-    {
-        //scoreText.text = "Score: " + currentScore;
-    }
+//    void Start()
+//    {
+//        int playerScore = playerBuildings.Count();
+//        player.playerBuildings.Count() > 17;
+//        if (playerScore > 17)
+//                EndGame();
+//    }
+
+//    private void HandleScore()
+//    {
+//        //scoreText.text = "Score: " + currentScore;
+//    }
 
 }
 
