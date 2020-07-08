@@ -23,6 +23,8 @@ public class PowerGrid : MonoBehaviour
 
     public scoringTrack Score;
 
+    public List<City> playerBuildings;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,28 +49,28 @@ public class PowerGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Steps steps = gameObject.GetComponent<Steps>();
+
         PhaseLoop();
-        StepLoop();
-        Endgame();
+
+        if (step == 1)
+            steps.StepOne();
+
+        else if (step == 2)
+           steps.StepTwo();
+
+        else if (step == 3)
+            steps.StepThree();
+
+        else
+            Endgame();
 
         //if (Score >= 17)
         //{
         //    Endgame();
         //}
     }
-   
 
-    //public void changeTurn()
-    //{
-    //    if (turn < players.Length)
-    //    {
-    //        turn++;
-    //    }
-    //    else
-    //    {
-    //        turn = 0;
-    //    }
-    //}
 
     public void OnDrawGizmos()
     {
@@ -137,68 +139,26 @@ public class PowerGrid : MonoBehaviour
         print(myCity.position);
     }
 
+
     public void PhaseLoop()
     {
-   
+
         Phases phases = gameObject.GetComponent<Phases>();
 
-        for (int phase = 1)
-        {
-            // code block to be executed
-            phases.PhaseOne();
-        }
+        phases.PhaseOne();
+        phases.PhaseTwo();
+        phases.PhaseThree();
+        phases.PhaseFour();
+        phases.PhaseFive();
 
+        //Check if a player has won
+        bool won = checkPlayerHasWon();
 
-        for (int phase = 2)
-        {
-            // code block to be executed
-            phases.PhaseTwo();
-        }
-
-        for (int phase = 3)
-        {
-            // code block to be executed
-            phases.PhaseThree();
-        }
-
-        for (int phase = 4)
-        {
-            // code block to be executed
-            phases.PhaseFour();
-        }
-
-        for (int phase = 5)
-        {
-            // code block to be executed
-            phases.PhaseFive();
-        }
+        //Someone's won
+        if (won)
+            endGame();
 
         turn++;
-    }
-
-    void StepLoop()
-    {
-
-        Steps steps = gameObject.GetComponent<Steps>();
-
-        for (int step = 1)
-        {
-            // code block to be executed
-            phases.PhaseOne();
-        }
-
-
-        for (int step = 2)
-        {
-            // code block to be executed
-
-        }
-
-        for (int step = 3)
-        {
-            // code block to be executed
-
-        }
     }
 
     void Endgame()
@@ -212,14 +172,13 @@ public class Elektro
 }
 
 public class scoringTrack
-{
-    private int currentScore;
-    //public Text scoreText;
-    // Use this for initialization
+{   
     void Start()
     {
-        currentScore = 0;
-
+        int playerScore = playerBuildings.Count();
+        player.playerBuildings.Count() > 10;
+        if (playerScore > 17)
+            EndGame();
     }
 
     private void HandleScore()
@@ -227,14 +186,19 @@ public class scoringTrack
         //scoreText.text = "Score: " + currentScore;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+}
+
+public bool checkPlayerHasWon()
+{
+    foreach (var player in players)
     {
-        if (col.gameObject.tag == "Mean")
-        {
-            currentScore++;
-            HandleScore();
-        }
+        //Does this player have a score above 17? If they did, they won
+        if (player.playerBuildings.Count() > 17)
+            return true;
     }
+
+    //No player had a score over 10: nobody won
+    return false;
 }
 
 public class MyLogHandler : ILogHandler
