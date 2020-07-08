@@ -18,8 +18,8 @@ public class Player : MonoBehaviour
     public List<Garbage> playerGarbage;
     public List<Nuclear> playerNuclear;
 
-    //Player Elektro
-    public List<Elektro> playerElektro;
+    //Player Elektro 
+    public int playerElektro = 50;
 
     //Player owned power plant cards
     public List<Card> playerPowerPlants;

@@ -96,6 +96,8 @@ public class Map
 
             //NO ERROR CHECKING IS DONE HERE TO CHECK IF THE CITY ACTUALLY EXISTS
             //USE .KeyExists TO CHECK
+            if (!cityHashMap.ContainsKey(to) || !cityHashMap.ContainsKey(from))
+                continue;
 
             //Find the cities in the map
             var cityA = cityHashMap[from];
@@ -155,6 +157,7 @@ public class Map
 
                 //Split the line into chunks
                 var chunks = line.Split(' ');
+                Debug.Log(chunks.Length);
 
                 //Cool, so now we just need to get the city name
                 var cityName = chunks[0].Trim().Replace(":", "");

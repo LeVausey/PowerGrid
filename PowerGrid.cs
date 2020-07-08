@@ -20,7 +20,7 @@ public class PowerGrid : MonoBehaviour
     public Map map;
     public City city;
     public City myCity;
-
+    public Player player;
     public scoringTrack Score;
 
     public List<City> playerBuildings;
@@ -165,6 +165,20 @@ public class PowerGrid : MonoBehaviour
     {
       
     }
+
+    public bool checkPlayerHasWon()
+    {
+        foreach (var player in players)
+        {
+            //Does this player have a score above 17? If they did, they won
+            if (player.playerBuildings.Count() > 17)
+                return true;
+        }
+
+        //No player had a score over 10: nobody won
+        return false;
+    }
+
 }
 public class Elektro
 {
@@ -178,7 +192,7 @@ public class scoringTrack
         int playerScore = playerBuildings.Count();
         player.playerBuildings.Count() > 10;
         if (playerScore > 17)
-            EndGame();
+                EndGame();
     }
 
     private void HandleScore()
@@ -186,19 +200,6 @@ public class scoringTrack
         //scoreText.text = "Score: " + currentScore;
     }
 
-}
-
-public bool checkPlayerHasWon()
-{
-    foreach (var player in players)
-    {
-        //Does this player have a score above 17? If they did, they won
-        if (player.playerBuildings.Count() > 17)
-            return true;
-    }
-
-    //No player had a score over 10: nobody won
-    return false;
 }
 
 public class MyLogHandler : ILogHandler

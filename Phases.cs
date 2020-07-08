@@ -73,7 +73,7 @@ public class Phases : MonoBehaviour
         //BuyResources()
     }
 
-    void PhaseFour()
+    public void PhaseFour()
     {
         phaseNum = 4;
 
@@ -90,7 +90,7 @@ public class Phases : MonoBehaviour
         //}
     }
 
-    void PhaseFive()
+    public void PhaseFive()
     {
         phaseNum = 5;
   
