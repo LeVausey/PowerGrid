@@ -105,7 +105,7 @@ public class PowerGrid : MonoBehaviour
             Gizmos.DrawSphere(city.position, 1f);
 
             //Draw a label here
-            UnityEditor.Handles.Label(city.position + Vector3.up * 2, $"{city.name}\n({city.sector.name})");
+            UnityEditor.Handles.Label(city.position + Vector3.up * 3, $"{city.name}\n({city.sector.name})");
 
             //Draw a line to it
             Gizmos.DrawLine(city.position + Vector3.up * 1.25f, city.position + Vector3.up * 1.75f);

@@ -34,12 +34,12 @@ public class Phases : MonoBehaviour
         //if (TurnOrder == true)
         //{
         //    TurnOrder = !TurnOrder;// it will take you to the next player
-     
+
         //}
         //if (TurnOrder == false)
         //{
         //    TurnOrder = !TurnOrder;// again taking to 1st player 
-                        
+
         //}
 
         ////Aunction()       
@@ -53,6 +53,12 @@ public class Phases : MonoBehaviour
         //    TurnOrder = !TurnOrder;// again taking to 1st player 
 
         //}
+
+        //choose a card
+        //var randomCity = player.FindRandomCity();
+
+        //buy card
+        //player.BuyCity(randomCity);
 
     }
 
@@ -71,7 +77,11 @@ public class Phases : MonoBehaviour
 
         //}
 
-        //BuyResources()
+        //choose a resource
+        //var randomCity = player.FindRandomCity();
+
+        //buy rescource
+        //player.BuyCity(randomCity);
     }
 
     public void PhaseFour()
