@@ -18,8 +18,8 @@ Lucbeck: 4, 74
 Schwerin: 14, 62
 Rostock: 23, 78
 Torgelow: 52, 63
-Berlin:	48, 37
-FrankfurtO: 58, 32
+Berlin: 48, 37
+Frankfurto: 58, 32
 Magdeburg: 20, 32
 
 [Red]
@@ -41,7 +41,7 @@ Wurzburg: -6, -32
 Nurnberg: 11, -40
 
 [Blue]
-FrankfurtM: -25, -21
+Frankfurtm: -25, -21
 Wiesbaden: -34, -24
 Koln: -51, -6
 Aachen: -66, -10
@@ -54,6 +54,6 @@ Stuttgart: -22, -59
 Freiburg: -39, -74
 Konstanz: -21, -82
 Augsburg: 3, -64
-Regensburg: 23, -51.4
+Regensburg: 23, -51
 Munchen: 18, -74
 Passau: 46, -62

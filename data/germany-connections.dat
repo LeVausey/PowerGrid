@@ -31,9 +31,9 @@ Rostock -> Torgelow: 19
 Berlin -> Schwerin: 18
 Magdeburg -> Berlin: 10
 Torgelow -> Berlin: 15
-FrankfurtO -> Berlin: 6
-FrankfurtO -> Dresden: 16
-FrankfurtO -> Leipzig: 21
+Frankfurto -> Berlin: 6
+Frankfurto -> Dresden: 16
+Frankfurto -> Leipzig: 21
 Berlin -> Halle: 17
 Magdeburg -> Halle: 11
 
@@ -49,9 +49,10 @@ Dusseldorf -> Aachen: 9
 Dusseldorf -> Koln: 4
 Dortmund -> Koln: 10
 Dortmund -> Kassel: 18
+Dortmund -> Frankfurtm: 20
 Kassel -> Erfurt: 15
 Kassel -> Fulda: 8
-Kassel -> FrankfurtM: 13
+Kassel -> Frankfurtm: 13
 
 #Yellow Connections
 Dresden -> Leipzig: 13
@@ -60,14 +61,15 @@ Leipzig -> Halle: 0
 Halle -> Erfurt: 6
 Erfurt -> Fulda: 13
 Fulda -> Wurzburg: 11
-Fulda -> FrankfurtM: 8
+Fulda -> Frankfurtm: 8
 Wurzburg -> Mannheim: 10
-Wurzburg -> FrankfurtM: 13
+Wurzburg -> Frankfurtm: 13
 Wurzburg -> Nurnberg: 8
 Wurzburg -> Stuttgart: 12
 Wurzburg -> Augsburg: 19
 Nurnberg -> Regensburg: 12
 Nurnberg -> Augsburg: 18
+Nurnberg -> Erfurt: 21
 
 
 #Blue Connections
@@ -79,7 +81,7 @@ Trier -> Wiesbaden: 18
 Trier -> Saarbrucken: 11
 Wiesbaden -> Saarbrucken: 10
 Wiesbaden -> Mannheim: 11
-FrankfurtM -> Wiesbaden: 0
+Frankfurtm -> Wiesbaden: 0
 Mannheim -> Saarbrucken: 11
 Mannheim -> Stuttgart: 6
 Saarbrucken -> Stuttgart: 17
@@ -93,4 +95,5 @@ Konstanz -> Augsburg: 17
 Augsburg -> Regensburg: 13
 Augsburg -> Munchen: 6
 Regensburg -> Passau: 12
+Regensburg -> Munchen: 10
 Passau -> Munchen: 14
