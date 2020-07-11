@@ -55,10 +55,10 @@ public class Phases : MonoBehaviour
         //}
 
         //choose a card
-        //var randomCity = player.FindRandomCity();
+        //var randomCard = player.FindRandomCard();
 
         //buy card
-        //player.BuyCity(randomCity);
+        //player.BuyCard(randomCard);
 
     }
 
@@ -78,7 +78,7 @@ public class Phases : MonoBehaviour
         //}
 
         //choose a resource
-        //var randomCity = player.FindRandomCity();
+        //var randomCity = player.FindRandomResource();
 
         //buy rescource
         //player.BuyCity(randomCity);
@@ -112,6 +112,133 @@ public class Phases : MonoBehaviour
     public void PhaseFive()
     {
         phaseNum = 5;
-  
+
+        //for (poweredplayercities = 0)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(10)
+        //}
+
+        //for (poweredplayercities = 1)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(22)
+        //}
+
+        //for (poweredplayercities = 2)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(33)
+        //}
+
+        //for (poweredplayercities = 3)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(44)
+        //}
+
+        //for (poweredplayercities = 4)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(54)
+        //}
+
+        //for (poweredplayercities = 5)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(64)
+        //}
+
+        //for (poweredplayercities = 6)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(73)
+        //}
+
+        //for (poweredplayercities = 7)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(82)
+        //}
+
+        //for (poweredplayercities = 8)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(90)
+        //}
+
+        //for (poweredplayercities = 9)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(98)
+        //}
+
+        //for (poweredplayercities = 10)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(105)
+        //}
+
+        //for (poweredplayercities = 11)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(112)
+        //}
+
+        //for (poweredplayercities = 12)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(118)
+        //}
+
+        //for (poweredplayercities = 13)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(124)
+        //}
+
+        //for (poweredplayercities = 14)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(129)
+        //}
+
+        //for (poweredplayercities = 15)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(134)
+        //}
+
+        //for (poweredplayercities = 16)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(138)
+        //}
+
+        //for (poweredplayercities = 17)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(142)
+        //}
+
+        //for (poweredplayercities = 18)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(145)
+        //}
+
+        //for (poweredplayercities = 19)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(148)
+        //}
+
+        //for (poweredplayercities = 20)
+        //{
+        //    // code block to be executed
+        //    add.playerelektro(150)
+        //}
+
+        //restockresources
     }
 }
