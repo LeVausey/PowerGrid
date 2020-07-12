@@ -3,14 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Phases : MonoBehaviour
+public class Phases
 {
     public int phaseNum;
     public bool phase;
     public bool TurnOrder = true;
     public bool ReverseTurnOrder = true;
+    public int playerOrder;
     public Player player;
 
+    public int turnCounter;
 
     public List<Card> deck;
     public List<Card> drawedCards;
@@ -21,21 +23,50 @@ public class Phases : MonoBehaviour
     public List<Nuclear> nuclear;
 
     public List<City> playerCities;
+    public List<City> poweredPlayerCities;
+
+    //public int FindMaxValue<T>(List<T> list, Converter<T, int> projection)
+    //{
+    //    if (list.Count == 0)
+    //    {
+    //        throw new InvalidOperationException("Empty list");
+    //    }
+    //    int maxValue = int.MinValue;
+    //    foreach (T item in list)
+    //    {
+    //        int value = projection(item);
+    //        if (value > maxValue)
+    //        {
+    //            maxValue = value;
+    //        }
+    //    }
+    //    return maxValue;
+    //}
+
 
     public void PhaseOne() 
     {
         phaseNum = 1;
-        //SetPlayerOrder()
-        if (turnCounter == 1)
-        {
-            //rand.range;
-        }
+        //public list = new list playerCityCount;
+        //if (turn = 0)
+        //{
+        //  for (i = 0; i > PLAYERS; i++);
+        //  {
+        //    int cityCounter = City.Count;
+        //    playerCityCount.Add(cityCount);
+        //  }
+        //}
 
-        if (turnCounter == 1)
-        {
-            //rand.range;
-        }
-
+        //if (turn > 1)
+        //{
+        //    for (i = 0; i > PLAYERS; i++)
+        //    {
+        //        int cityCounter = City.Count;
+        //        playerCityCount.Add(cityCount);
+        //    }
+        //    List.Sort(playerCityCount);
+        //    playerCityCount[playerCityCount.length - 1];
+        //}
     }
 
     public void PhaseTwo()

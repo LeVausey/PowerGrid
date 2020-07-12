@@ -53,8 +53,7 @@ public class SetUpPhase : MonoBehaviour
 
         ////Print them out to test
         foreach (var card in drawedCards)
-            Debug.Log(card);
-
+            Debug.Log(card); 
 
         Debug.Log("Deck cards:");
 
