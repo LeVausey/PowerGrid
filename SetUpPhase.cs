@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using System.Linq;
 using UnityEngine;
-
+using System.Media;
 
 public class SetUpPhase : MonoBehaviour
 {
@@ -16,6 +16,8 @@ public class SetUpPhase : MonoBehaviour
     public List<Oil> oil;
     public List<Garbage> garbage;
     public List<Nuclear> nuclear;
+
+    public Player player;
 
     public void SetDeckandMarket()
     {
@@ -59,7 +61,6 @@ public class SetUpPhase : MonoBehaviour
         ////Print them out to test
         foreach (var card in deck)
             Debug.Log(card);
-
     }
 
     public void SetResourceMarket()
@@ -83,13 +84,11 @@ public class SetUpPhase : MonoBehaviour
 
     }
 
-    public void SetPlayerElektro()
-    { 
-
-    }
-
     public void SetMapPlayerArea()
     {
+        //Set Map player area
+
+        //for
 
     }
 

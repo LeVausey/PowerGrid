@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,11 +20,21 @@ public class Phases : MonoBehaviour
     public List<Garbage> garbage;
     public List<Nuclear> nuclear;
 
+    public List<City> playerCities;
+
     public void PhaseOne() 
     {
         phaseNum = 1;
         //SetPlayerOrder()
+        if (turnCounter == 1)
+        {
+            //rand.range;
+        }
 
+        if (turnCounter == 1)
+        {
+            //rand.range;
+        }
 
     }
 

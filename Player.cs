@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player
 {
     public int playerNumber; // To set whether it's player 1 or 2
 
@@ -50,17 +50,17 @@ public class Player : MonoBehaviour
     */
     public void BuyCard(PowerPlantCard powerPlantCard)
     {
-    //    //They have enough money to buy the city: so add it to the list of owned cities
-    //    if (playerElektro >= powerPlantCard.price)
-    //    {
-    //        //Add it to the list of owned cards
-    //        playerPowerPlants.Add(powerPlantCard);
+        //They have enough money to buy the city: so add it to the list of owned cities
+        if (playerElektro >= powerPlantCard.faceValue)
+        {
+            //Add it to the list of owned cards
+            playerPowerPlants.Add(powerPlantCard);
 
-    //        //Deduct that amount from their money
-    //        playerElektro -= powerPlantCard.price;
-    //    }
-    //    else
-    //        Debug.Log("you dont have enough money!");
+            //Deduct that amount from their money
+            playerElektro -= powerPlantCard.faceValue;
+        }
+        else
+            Debug.Log("you dont have enough money!");
     }
 
 

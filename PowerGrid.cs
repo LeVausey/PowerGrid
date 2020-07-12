@@ -5,6 +5,7 @@ using System.Timers;
 using System.IO;
 using System;
 using UnityEngine;
+using System.Diagnostics;
 
 public class PowerGrid : MonoBehaviour
 {
@@ -12,8 +13,7 @@ public class PowerGrid : MonoBehaviour
     private Logger myLogger;
 
     public int playerAmount = 3;
-    public int playerOrder = 0;
-    public int turn = 0;
+    public int turn = 1;
     public int phase = 1;
     public int step = 1;
 
@@ -21,6 +21,7 @@ public class PowerGrid : MonoBehaviour
     public City city;
     public City myCity;
     public Player player;
+    public SetUpPhase setUp;
     public scoringTrack Score;
 
  
@@ -38,12 +39,11 @@ public class PowerGrid : MonoBehaviour
         List<City> allCities = map.getCityList();
         myCity = allCities[0];
 
-        SetUpPhase setUp = gameObject.GetComponent<SetUpPhase>();
-
         setUp.SetDeckandMarket();
         setUp.SetFirstTurnPlayerOrder();
-        setUp.SetPlayerElektro();
         setUp.SetMapPlayerArea();
+
+        //UnityEngine.Debug.Log(setUp);
     }
 
     // Update is called once per frame
@@ -227,11 +227,11 @@ public class MyLogHandler : ILogHandler
 {
     public void LogFormat(LogType logType, UnityEngine.Object context, string format, params object[] args)
     {
-        Debug.unityLogger.logHandler.LogFormat(logType, context, format, args);
+        UnityEngine.Debug.unityLogger.logHandler.LogFormat(logType, context, format, args);
     }
 
     public void LogException(Exception exception, UnityEngine.Object context)
     {
-        Debug.unityLogger.LogException(exception, context);
+        UnityEngine.Debug.unityLogger.LogException(exception, context);
     }
 }
