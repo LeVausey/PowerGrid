@@ -16,6 +16,7 @@ public class Map
     /// <returns></returns>
     public List<City> cities = new List<City>();
 
+   
     public List<City> getCityList()
     {
         return cities;
@@ -157,7 +158,8 @@ public class Map
 
                 //Split the line into chunks
                 var chunks = line.Split(' ');
-                Debug.Log(chunks.Length);
+                //Debug.Log(line);
+                //Debug.Log(chunks.Length);
 
                 //Cool, so now we just need to get the city name
                 var cityName = chunks[0].Trim().Replace(":", "");
@@ -182,5 +184,36 @@ public class Map
 
         //Return them
         return sectors;
+    }
+
+    public void FindAdjacentSectorData()
+    {
+        foreach (var sector in sectors)
+        {
+            //Go through each sector in the map
+            //..
+
+            foreach (var city in sector.cities)
+            {
+                //Go through each city in the sector
+                //..
+
+                foreach (var connection in city.connections)
+                {
+                    //Go through each connection in the city
+                    //..
+
+                    if (!connection.outCity.sector.name.Equals(sector.name))
+                    {
+                        //Connected city's sector name is different to this sectors name?
+                        //That means that this is adjacent to connection.outCity.sector
+                        //..
+
+                        if (sector.adjacentSectors.Contains(x => x.name.Equals(connection.outCity.sector.name)))
+                            sector.adjacentSectors.Add(connection.outCity.sector);
+                    }
+                }
+            }
+        }
     }
 }

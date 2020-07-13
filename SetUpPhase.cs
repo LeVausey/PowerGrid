@@ -8,6 +8,8 @@ using System.Media;
 
 public class SetUpPhase : MonoBehaviour
 {
+    public City city;
+    public Sector sector; 
 
     public List<Card> deck;
     public List<Card> drawedCards;
@@ -17,7 +19,7 @@ public class SetUpPhase : MonoBehaviour
     public List<Garbage> garbage;
     public List<Nuclear> nuclear;
 
-    public Player player;
+    public Player players;
 
     public void SetDeckandMarket()
     {
@@ -49,17 +51,17 @@ public class SetUpPhase : MonoBehaviour
         //Add the step card
         deck.Add(new StepThreeCard());
 
-        Debug.Log("Drawed cards:");
+        //Debug.Log("Drawed cards:");
 
-        ////Print them out to test
-        foreach (var card in drawedCards)
-            Debug.Log(card); 
+        //////Print them out to test
+        //foreach (var card in drawedCards)
+        //    Debug.Log(card);
 
-        Debug.Log("Deck cards:");
+        //Debug.Log("Deck cards:");
 
-        ////Print them out to test
-        foreach (var card in deck)
-            Debug.Log(card);
+        //////Print them out to test
+        //foreach (var card in deck)
+        //    Debug.Log(card);
     }
 
     public void SetResourceMarket()
@@ -78,16 +80,9 @@ public class SetUpPhase : MonoBehaviour
 
     }   
 
-    public void SetFirstTurnPlayerOrder()
-    {
-
-    }
-
     public void SetMapPlayerArea()
     {
         //Set Map player area
-
-        //for
 
     }
 

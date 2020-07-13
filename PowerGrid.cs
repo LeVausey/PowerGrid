@@ -9,39 +9,39 @@ using System.Diagnostics;
 
 public class PowerGrid : MonoBehaviour
 {
-    private static string kTAG = "MyGameTag";
-    private Logger myLogger;
+    //private static string kTAG = "MyGameTag";
+    //private Logger myLogger;
 
-    public int playerAmount = 3;
-    public int turn = 1;
+    public int turn = 0;
     public int phase = 1;
     public int step = 1;
 
     public Map map;
     public City city;
     public City myCity;
-    public Player player;
+    public List<Player> players = new List<Player>();
     public SetUpPhase setUp;
     public scoringTrack Score;
 
- 
+    public Phases phases = new Phases();
+    public Steps steps = new Steps();
 
     // Start is called before the first frame update
     void Start()
     {
 
-        myLogger = new Logger(new MyLogHandler());
+        //myLogger = new Logger(new MyLogHandler());
 
-        myLogger.Log(kTAG, "MyGameClass Start.");
+        //myLogger.Log(kTAG, "MyGameClass Start.");
 
         map = new Map("Green", "Assets/data/germany-sectors.dat", "Assets/data/germany-connections.dat");
 
         List<City> allCities = map.getCityList();
         myCity = allCities[0];
 
+        setUp = new SetUpPhase();
         setUp.SetDeckandMarket();
-        setUp.SetFirstTurnPlayerOrder();
-        setUp.SetMapPlayerArea();
+        setUp.SetResourceMarket();
 
         //UnityEngine.Debug.Log(setUp);
     }
@@ -49,7 +49,7 @@ public class PowerGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Steps steps = gameObject.GetComponent<Steps>();
+        
 
         PhaseLoop();
 
@@ -66,16 +66,19 @@ public class PowerGrid : MonoBehaviour
             EndGame();
 
 
-        //Check if the game has been won:
-        int playerScore = player.playerBuildings.Count;
+        foreach (var player in players)
+        {
+            //Check if the game has been won:
+            int playerScore = player.playerBuildings.Count;
 
-        //Step Two trigger
-        if (playerScore > 7)
-            step = 2;
+            //Step Two trigger
+            if (playerScore > 7)
+                step = 2;
 
-        //End game if needed
-        if (playerScore > 17)
-            EndGame();
+            //End game if needed
+            if (playerScore > 17)
+                EndGame();
+        }
 
 
         //if (Score >= 17)
@@ -161,8 +164,6 @@ public class PowerGrid : MonoBehaviour
     public void PhaseLoop()
     {
 
-        Phases phases = gameObject.GetComponent<Phases>();
-
         phases.PhaseOne();
         phases.PhaseTwo();
         phases.PhaseThree();
@@ -186,10 +187,10 @@ public class PowerGrid : MonoBehaviour
 
     public bool checkPlayerHasWon()
     {
-        //foreach (var player in players)
+        //foreach (var players in players)
         //{
         //    //Does this player have a score above 17? If they did, they won
-        //    if (player.playerBuildings.Count() > 17)
+        //    if (players.playerBuildings.Count() > 17)
         //        return true;
         //}
 
@@ -199,11 +200,6 @@ public class PowerGrid : MonoBehaviour
 
 }
 
-public class Elektro
-{
-    
-}
-
 public class scoringTrack
 {
 //    public List<City> playerBuildings;
@@ -211,7 +207,7 @@ public class scoringTrack
 //    void Start()
 //    {
 //        int playerScore = playerBuildings.Count();
-//        player.playerBuildings.Count() > 17;
+//        players.playerBuildings.Count() > 17;
 //        if (playerScore > 17)
 //                EndGame();
 //    }
@@ -223,15 +219,15 @@ public class scoringTrack
 
 }
 
-public class MyLogHandler : ILogHandler
-{
-    public void LogFormat(LogType logType, UnityEngine.Object context, string format, params object[] args)
-    {
-        UnityEngine.Debug.unityLogger.logHandler.LogFormat(logType, context, format, args);
-    }
+//public class MyLogHandler : ILogHandler
+//{
+//    //public void LogFormat(LogType logType, UnityEngine.Object context, string format, params object[] args)
+//    //{
+//    //    UnityEngine.Debug.unityLogger.logHandler.LogFormat(logType, context, format, args);
+//    //}
 
-    public void LogException(Exception exception, UnityEngine.Object context)
-    {
-        UnityEngine.Debug.unityLogger.LogException(exception, context);
-    }
-}
+//    //public void LogException(Exception exception, UnityEngine.Object context)
+//    //{
+//    //    UnityEngine.Debug.unityLogger.LogException(exception, context);
+//    //}
+//}

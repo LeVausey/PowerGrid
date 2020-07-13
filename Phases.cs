@@ -1,21 +1,21 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Phases
+public class Phases 
 {
     public int phaseNum;
     public bool phase;
     public bool TurnOrder = true;
     public bool ReverseTurnOrder = true;
     public int playerOrder;
-    public Player player;
 
-    public int turnCounter;
+    public List<Player> players = new List<Player>();
 
     public List<Card> deck;
-    public List<Card> drawedCards;
+    public List<Card> playerPowerPlants;
 
     public List<Coal> coal;
     public List<Oil> oil;
@@ -24,42 +24,47 @@ public class Phases
 
     public List<City> playerCities;
     public List<City> poweredPlayerCities;
+    public List<City> playerCityCount = new List<City>();
 
-    //public int FindMaxValue<T>(List<T> list, Converter<T, int> projection)
-    //{
-    //    if (list.Count == 0)
-    //    {
-    //        throw new InvalidOperationException("Empty list");
-    //    }
-    //    int maxValue = int.MinValue;
-    //    foreach (T item in list)
-    //    {
-    //        int value = projection(item);
-    //        if (value > maxValue)
-    //        {
-    //            maxValue = value;
-    //        }
-    //    }
-    //    return maxValue;
-    //}
+    //Finding the largest city amount
+    public int FindMaxValue<T>(List<T> list, Converter<T, int> projection)
+    {
+        if (list.Count == 0)
+        {
+            throw new InvalidOperationException("Empty list");
+        }
+        int maxValue = int.MinValue;
+        foreach (T playerCities in list)
+        {
+            int value = projection(playerCities);
+            if (value > maxValue)
+            {
+                maxValue = value;
+            }
+        }
+        return maxValue;
+    }
 
 
     public void PhaseOne() 
     {
         phaseNum = 1;
-        //public list = new list playerCityCount;
-        //if (turn = 0)
-        //{
-        //  for (i = 0; i > PLAYERS; i++);
-        //  {
-        //    int cityCounter = City.Count;
-        //    playerCityCount.Add(cityCount);
-        //  }
-        //}
+
+        // Find a random player order
+        var randomPlayerOrder = players.Select((x, y) => y).OrderBy(x => UnityEngine.Random.value).ToArray();
+
+        //Run through each player in this order
+        for (int i = 0; i < randomPlayerOrder.Length; i++)
+        {
+            //Get the player by their random order
+            Player player = players[randomPlayerOrder[i]];
+
+
+        }
 
         //if (turn > 1)
         //{
-        //    for (i = 0; i > PLAYERS; i++)
+        //    for (i = 0; i > player; i++)
         //    {
         //        int cityCounter = City.Count;
         //        playerCityCount.Add(cityCount);
@@ -72,52 +77,24 @@ public class Phases
     public void PhaseTwo()
     {
         phaseNum = 2;
-        ////FirstTurnAunction()
-        //if (TurnOrder == true)
+
+        //playerOrder
+        //foreach (var player in players.Reverse())
         //{
-        //    TurnOrder = !TurnOrder;// it will take you to the next player
-
-        //}
-        //if (TurnOrder == false)
-        //{
-        //    TurnOrder = !TurnOrder;// again taking to 1st player 
-
-        //}
-
-        ////Aunction()       
-        //if (TurnOrder == true)
-        //{
-        //    TurnOrder = !TurnOrder;// it will take you to the next player
-
-        //}
-        //if (TurnOrder == false)
-        //{
-        //    TurnOrder = !TurnOrder;// again taking to 1st player 
-
-        //}
-
         //choose a card
         //var randomCard = player.FindRandomCard();
 
         //buy card
         //player.BuyCard(randomCard);
+        //}
 
     }
 
     public void PhaseThree()
     {
         phaseNum = 3;
-        //ChooseResources()
-        //if (ReverseTurnOrder == true)
-        //{
-        //    ReverseTurnOrder = !ReverseTurnOrder;// it will take you to the next player
 
-        //}
-        //if (ReverseTurnOrder == false)
-        //{
-        //    ReverseTurnOrder = !ReverseTurnOrder;// again taking to 1st player 
-
-        //}
+        //playerOrder.Reverse;
 
         //choose a resource
         //var randomCity = player.FindRandomResource();
@@ -130,30 +107,39 @@ public class Phases
     {
         phaseNum = 4;
 
-        //buy cities
+        //playerOrder.Reverse;
 
-        //if (ReverseTurnOrder == true)
-        //{
-        //    ReverseTurnOrder = !ReverseTurnOrder;// it will take you to the next player
+        for (int i = players.Count; i > 0; i--)
+        {
+            //Get the player at this index
+            var player = players[i];
 
-        //}
-        //if (ReverseTurnOrder == false)
-        //{
-        //    ReverseTurnOrder = !ReverseTurnOrder;// again taking to 1st player 
+            //Choose a random city
+            var randomCity = player.FindRandomCity();
 
-        //}
-
-        // Choose a random city
-        var randomCity = player.FindRandomCity();
-
-        //Buy the random city
-        player.BuyCity(randomCity);
-
+            //Buy the random city
+            player.BuyCity(randomCity);
+        }
     }
 
     public void PhaseFive()
     {
         phaseNum = 5;
+
+        //playerOrder
+
+        //powering cites
+        //for
+        //    {
+        //       playerPowerPlants power playerCities
+        //    }
+
+        //foreach
+        //{
+                
+
+        //}
+
 
         //for (poweredplayercities = 0)
         //{

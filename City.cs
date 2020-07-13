@@ -79,6 +79,10 @@ public class Sector
     /// </summary>
     public List<City> cities = new List<City>();
 
+    /// The list of adjacent sectors
+    public List<Sector> adjacentSectors = new List<Sector>();
+
+
     /// <summary>
     /// The sector name 
     /// </summary>
@@ -92,9 +96,8 @@ public class Sector
     {
         this.name = name;
     }
+
 }
-
-
 
 public class BuildingSlot
 {
