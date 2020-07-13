@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using System.Media;
 
-public class SetUpPhase : MonoBehaviour
+public class SetUpPhase
 {
     public City city;
     public Sector sector; 

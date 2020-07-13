@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class Player
 {
-    public int playerNumber; // To set whether it's player 1 or 2
-
-    //if(gM.turn == playerNumber - 1) // -1 because computers count from zero. 
-    //{   
-    // // do player's turn actions
-    //gM.changeTurn();
-    //}
+    public int playerNumber; 
     
 
     //Player owned Resources

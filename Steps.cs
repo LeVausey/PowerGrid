@@ -85,11 +85,12 @@ public class Steps
         {
             decimal tempD = Math.Ceiling(i / 3);
             int tempInt = (int)tempD;
+            bool tempB;
             if (i < 4)
                 tempB = false;
             else
                 tempB = true;
-            tempList.Add(new Coal((int)tempD, true));
+            tempList.Add(new Coal((int)tempD, tempB));
             //UnityEngine.Debug.Log(tempD);
         }
         //Return the list 
