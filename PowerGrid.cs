@@ -35,6 +35,15 @@ public class PowerGrid : MonoBehaviour
         //myLogger.Log(kTAG, "MyGameClass Start.");
 
         map = new Map("Green", "Assets/data/germany-sectors.dat", "Assets/data/germany-connections.dat");
+        map.FindAdjacentSectorData();
+
+        //foreach (var sector in map.sectors)
+        //{
+        //    UnityEngine.Debug.Log($"Sector {sector.name} is adjacent to:");
+
+        //    foreach (var adj in sector.adjacentSectors)
+        //        UnityEngine.Debug.Log("\t" + adj.name);
+        //}
 
         List<City> allCities = map.getCityList();
         myCity = allCities[0];

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Linq;
 using System.Dynamic;
+using System.Diagnostics;
 
 public class Map
 {
@@ -192,6 +194,7 @@ public class Map
         {
             //Go through each sector in the map
             //..
+            //UnityEngine.Debug.Log(sector.cities.Count);
 
             foreach (var city in sector.cities)
             {
@@ -209,7 +212,7 @@ public class Map
                         //That means that this is adjacent to connection.outCity.sector
                         //..
 
-                        if (sector.adjacentSectors.Contains(x => x.name.Equals(connection.outCity.sector.name)))
+                        if (!sector.adjacentSectors.Any(x => x.name.Equals(connection.outCity.sector.name)))
                             sector.adjacentSectors.Add(connection.outCity.sector);
                     }
                 }

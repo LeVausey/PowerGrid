@@ -82,8 +82,37 @@ public class SetUpPhase : MonoBehaviour
 
     public void SetMapPlayerArea()
     {
-        //Set Map player area
+        ////Set Map player area
+        ////List of chosen sectors
+        //var chosenSectors = new List<Sector>();
 
+        ////Run through the amount of players
+        //for (int i = 0; i < players.Count; i++)
+        //{
+        //    //Choose a sector in the chosenSectors list if its is not empty
+        //    if (chosenSectors.Count == 0)
+        //        chosenSectors.Add(findARandomSector());
+
+        //    else
+        //    {
+        //        //Choose a random sector in chosen sectors
+        //        var randomSector = chosenSectors[Random.Range(0, chosenSectors.Count)];
+
+        //        //Choose a random adjacent sector
+        //        var randomAdj = randomSector.adjacentSectors[Random.Range(0, chosenSectors.Count)];
+
+        //        //Check here if randomAdj is in chosenSectors, if it is, then we can't start the player
+        //        //here because its already been chosen 
+        //        //...
+        //        //while 
+        //        //{
+
+        //        //}
+
+        //        //Otherwise;
+        //        chosenSectors.Add(randomAdj);
+        //    }
+        //}
     }
 
     private List<Card> getDefaultPowerPlantCards()
