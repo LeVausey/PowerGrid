@@ -127,7 +127,8 @@ public class Phases
         phaseNum = 5;
 
         //playerOrder
-
+        //foreach (var player in players.Reverse())
+        //{
         //powering cites
         //for
         //    {
@@ -136,7 +137,7 @@ public class Phases
 
         //foreach
         //{
-                
+
 
         //}
 
@@ -268,5 +269,6 @@ public class Phases
         //}
 
         //restockresources
+        //}
     }
 }
