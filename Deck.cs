@@ -64,5 +64,14 @@ public static class Deck
 
         return sequence;
     }
-   
+
+    //public static IEnumerable<List<T>> SplitList<T>(this IEnumerable<T> list, int nSize = 4)
+    //{
+    //    for (int i = 0; i < list.Count; i += nSize)
+    //    {
+    //        yield return locations.GetRange(i, Math.Min(nSize, list.Count - i));
+    //    }
+    //}
+
+
 }

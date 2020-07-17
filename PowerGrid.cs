@@ -52,6 +52,11 @@ public class PowerGrid : MonoBehaviour
         setUp.SetDeckandMarket();
         setUp.SetResourceMarket();
 
+        //Adding the players to the player list
+        players.Add(new Player());
+        players.Add(new Player());
+        players.Add(new Player());
+
         //UnityEngine.Debug.Log(setUp);
     }
 

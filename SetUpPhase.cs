@@ -45,6 +45,9 @@ public class SetUpPhase
         //Sort the drawed cards
         drawedCards = drawedCards.OrderBy(x => x.getFaceValue()).ToList();
 
+        //Sort the drawed cards into current and furture market
+        //drawedCards = drawedCards.SplitList; 
+
         //Shuffle everything in the deck
         deck = deck.ShufflePortion(0, deck.Count()).ToList();
 
@@ -53,9 +56,9 @@ public class SetUpPhase
 
         //Debug.Log("Drawed cards:");
 
-        //////Print them out to test
-        //foreach (var card in drawedCards)
-        //    Debug.Log(card);
+        ////Print them out to test
+        foreach (var card in drawedCards)
+            Debug.Log(card);
 
         //Debug.Log("Deck cards:");
 

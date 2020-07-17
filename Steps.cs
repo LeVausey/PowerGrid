@@ -177,6 +177,11 @@ public class Steps
         {
             decimal tempD = Math.Ceiling(i / 3);
             int tempInt = (int)tempD;
+            bool tempB;
+            if (i < 4)
+                tempB = false;
+            else
+                tempB = true;
             tempList.Add(new Coal((int)tempD, true));
             //UnityEngine.Debug.Log(tempD);
         }
@@ -188,7 +193,7 @@ public class Steps
     {
         List<Oil> tempList = new List<Oil>();
 
-        //Add 24 oil
+        //Add 3 oil
         for (decimal i = 1; i <= 24; i++)
         {
             decimal tempD = Math.Ceiling(i / 3);
@@ -210,7 +215,7 @@ public class Steps
     {
         List<Garbage> tempList = new List<Garbage>();
 
-        //Add 24 garbage
+        //Add 2 garbage
         for (decimal i = 1; i <= 24; i++)
         {
             decimal tempD = Math.Ceiling(i / 3);
@@ -232,7 +237,7 @@ public class Steps
     {
         List<Nuclear> tempList = new List<Nuclear>();
 
-        //Add 12 nuclear
+        //Add 1 nuclear
         for (decimal i = 1; i <= 8; i++)
         {
             decimal tempD = Math.Ceiling(i / 1);
@@ -259,11 +264,16 @@ public class Steps
     {
         List<Coal> tempList = new List<Coal>();
 
-        //Add 24 coal
+        //Add 3 coal
         for (decimal i = 1; i <= 24; i++)
         {
             decimal tempD = Math.Ceiling(i / 3);
             int tempInt = (int)tempD;
+            bool tempB;
+            if (i < 4)
+                tempB = false;
+            else
+                tempB = true;
             tempList.Add(new Coal((int)tempD, true));
             //UnityEngine.Debug.Log(tempD);
         }
@@ -275,13 +285,13 @@ public class Steps
     {
         List<Oil> tempList = new List<Oil>();
 
-        //Add 24 oil
+        //Add 4 oil
         for (decimal i = 1; i <= 24; i++)
         {
             decimal tempD = Math.Ceiling(i / 3);
             int tempInt = (int)tempD;
             bool tempB;
-            if (i < 7)
+            if (i < 3)
                 tempB = false;
             else
                 tempB = true;
@@ -297,13 +307,13 @@ public class Steps
     {
         List<Garbage> tempList = new List<Garbage>();
 
-        //Add 24 garbage
+        //Add 4 garbage
         for (decimal i = 1; i <= 24; i++)
         {
             decimal tempD = Math.Ceiling(i / 3);
             int tempInt = (int)tempD;
             bool tempB;
-            if (i < 16)
+            if (i < 12)
                 tempB = false;
             else
                 tempB = true;
@@ -319,24 +329,19 @@ public class Steps
     {
         List<Nuclear> tempList = new List<Nuclear>();
 
-        //Add 12 nuclear
+        //Add 1 nuclear
         for (decimal i = 1; i <= 8; i++)
         {
             decimal tempD = Math.Ceiling(i / 1);
             int tempInt = (int)tempD;
             bool tempB;
-            if (i < 8)
+            if (i < 6)
                 tempB = false;
             else
                 tempB = true;
             tempList.Add(new Nuclear((int)tempD, tempB));
             //UnityEngine.Debug.Log(tempD);
         }
-
-        tempList.Add(new Nuclear(10, true));
-        tempList.Add(new Nuclear(12, true));
-        tempList.Add(new Nuclear(14, true));
-        tempList.Add(new Nuclear(16, true));
 
         //Return the list 
         return tempList;

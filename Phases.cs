@@ -15,6 +15,7 @@ public class Phases
     public List<Player> players = new List<Player>();
 
     public List<Card> deck;
+    public List<Card> drawedCards;
     public List<Card> playerPowerPlants;
 
     public List<Coal> coal;
@@ -79,7 +80,7 @@ public class Phases
         phaseNum = 2;
 
         //playerOrder
-        //foreach (var player in players.Reverse())
+        //foreach (var player in players)
         //{
         //choose a card
         //var randomCard = player.FindRandomCard();
@@ -95,12 +96,17 @@ public class Phases
         phaseNum = 3;
 
         //playerOrder.Reverse;
+        //for (int i = players.Count; i > 0; i--)
+        //{
+        //    //Get the player at this index
+        //    var player = players[i];
 
-        //choose a resource
-        //var randomCity = player.FindRandomResource();
+        //    //Choose a random city
+        //    var randomResource = player.FindRandomResource();
 
-        //buy rescource
-        //player.BuyCity(randomCity);
+        //    //Buy the random city
+        //    player.BuyResource(randomResource);
+        //}
     }
 
     public void PhaseFour()
@@ -125,150 +131,148 @@ public class Phases
     public void PhaseFive()
     {
         phaseNum = 5;
+        foreach (var player in players)
+        {
+            drawedCards.Remove(drawedCards.Min());
+            drawedCards = deck.Draw(0, 0).ToList();
 
-        //playerOrder
-        //foreach (var player in players.Reverse())
-        //{
-        //powering cites
-        //for
-        //    {
-        //       playerPowerPlants power playerCities
-        //    }
+            //powering cites
+            //for
+            //    {
+            //       playerPowerPlants power playerCities
+            //    }
 
-        //foreach
-        //{
+            //for (poweredplayercities = 0)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(10)
+            //}
+
+            //for (poweredplayercities = 1)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(22)
+            //}
+
+            //for (poweredplayercities = 2)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(33)
+            //}
+
+            //for (poweredplayercities = 3)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(44)
+            //}
+
+            //for (poweredplayercities = 4)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(54)
+            //}
+
+            //for (poweredplayercities = 5)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(64)
+            //}
+
+            //for (poweredplayercities = 6)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(73)
+            //}
+
+            //for (poweredplayercities = 7)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(82)
+            //}
+
+            //for (poweredplayercities = 8)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(90)
+            //}
+
+            //for (poweredplayercities = 9)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(98)
+            //}
+
+            //for (poweredplayercities = 10)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(105)
+            //}
+
+            //for (poweredplayercities = 11)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(112)
+            //}
+
+            //for (poweredplayercities = 12)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(118)
+            //}
+
+            //for (poweredplayercities = 13)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(124)
+            //}
+
+            //for (poweredplayercities = 14)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(129)
+            //}
+
+            //for (poweredplayercities = 15)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(134)
+            //}
+
+            //for (poweredplayercities = 16)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(138)
+            //}
+
+            //for (poweredplayercities = 17)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(142)
+            //}
+
+            //for (poweredplayercities = 18)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(145)
+            //}
+
+            //for (poweredplayercities = 19)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(148)
+            //}
+
+            //for (poweredplayercities = 20)
+            //{
+            //    // code block to be executed
+            //    add.playerelektro(150)
+            //}
+
+            //restockresources
+
+        }
 
 
-        //}
 
-
-        //for (poweredplayercities = 0)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(10)
-        //}
-
-        //for (poweredplayercities = 1)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(22)
-        //}
-
-        //for (poweredplayercities = 2)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(33)
-        //}
-
-        //for (poweredplayercities = 3)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(44)
-        //}
-
-        //for (poweredplayercities = 4)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(54)
-        //}
-
-        //for (poweredplayercities = 5)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(64)
-        //}
-
-        //for (poweredplayercities = 6)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(73)
-        //}
-
-        //for (poweredplayercities = 7)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(82)
-        //}
-
-        //for (poweredplayercities = 8)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(90)
-        //}
-
-        //for (poweredplayercities = 9)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(98)
-        //}
-
-        //for (poweredplayercities = 10)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(105)
-        //}
-
-        //for (poweredplayercities = 11)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(112)
-        //}
-
-        //for (poweredplayercities = 12)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(118)
-        //}
-
-        //for (poweredplayercities = 13)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(124)
-        //}
-
-        //for (poweredplayercities = 14)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(129)
-        //}
-
-        //for (poweredplayercities = 15)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(134)
-        //}
-
-        //for (poweredplayercities = 16)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(138)
-        //}
-
-        //for (poweredplayercities = 17)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(142)
-        //}
-
-        //for (poweredplayercities = 18)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(145)
-        //}
-
-        //for (poweredplayercities = 19)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(148)
-        //}
-
-        //for (poweredplayercities = 20)
-        //{
-        //    // code block to be executed
-        //    add.playerelektro(150)
-        //}
-
-        //restockresources
-        //}
     }
 }
