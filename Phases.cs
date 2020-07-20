@@ -82,11 +82,15 @@ public class Phases
         //playerOrder
         //foreach (var player in players)
         //{
-        //choose a card
-        //var randomCard = player.FindRandomCard();
+        //while(bool)
+        //{
+            //choose a card
+            //var randomCard = player.FindRandomCard();
 
-        //buy card
-        //player.BuyCard(randomCard);
+            //buy card
+            //player.BuyCard(randomCard);
+        //}
+
         //}
 
     }
@@ -98,6 +102,8 @@ public class Phases
         //playerOrder.Reverse;
         //for (int i = players.Count; i > 0; i--)
         //{
+        //while(bool)
+        //{
         //    //Get the player at this index
         //    var player = players[i];
 
@@ -106,6 +112,7 @@ public class Phases
 
         //    //Buy the random city
         //    player.BuyResource(randomResource);
+        //}
         //}
     }
 
@@ -117,6 +124,8 @@ public class Phases
 
         for (int i = players.Count; i > 0; i--)
         {
+            //while(bool)
+            //{
             //Get the player at this index
             var player = players[i];
 
@@ -125,6 +134,8 @@ public class Phases
 
             //Buy the random city
             player.BuyCity(randomCity);
+            //}
+
         }
     }
 
@@ -269,10 +280,6 @@ public class Phases
             //}
 
             //restockresources
-
         }
-
-
-
     }
 }

@@ -51,7 +51,7 @@ public class Steps
         //Open building slot 2
 
         //Power Plant Market
-        //Card extracted = drawedCards.Extract(0);
+        //drawedCards.Remove(drawedCards.Min());
     }
 
     public void StepThree()
@@ -73,7 +73,7 @@ public class Steps
         //Open building slot 3
 
         //Power Plant Market
-        //Card extracted = drawedCards.Extract(0, 1);
+        //drawedCards.Remove(drawedCards.Min());
     }
 
     private List<Coal> stepOneCoal()
