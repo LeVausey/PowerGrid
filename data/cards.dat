@@ -9,11 +9,11 @@
 8: "Coal", false, 2, 3
 9: "Oil", false, 1, 1
 10: "Coal", false, 2, 2
-11:	"Nuclear", false, 2, 1
-12:	"Oil", true, 2, 2
+11: "Nuclear", false, 2, 1
+12: "Oil", true, 2, 2
 13: "Nothing", false, 1, 0
 14: "Garbage", false, 2, 2
-15: "Coal": false: 3: 2
+15: "Coal", false, 3, 2
 16: "Oil", false, 3, 2
 17: "Nuclear", false, 2, 1
 18: "Nothing", false, 2, 0
