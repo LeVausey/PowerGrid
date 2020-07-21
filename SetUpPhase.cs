@@ -9,7 +9,8 @@ using System.Media;
 public class SetUpPhase
 {
     public City city;
-    public Sector sector; 
+    public Sector sector;
+    //public Deck cardDeck;
 
     public List<Card> deck;
     public List<Card> drawedCards;
@@ -24,7 +25,7 @@ public class SetUpPhase
     public void SetDeckandMarket()
     {
         //Start the deck with the default power plant cards
-        deck = getDefaultPowerPlantCards();
+        deck = Deck.LoadFromFile("Assets/data/cards.dat");
 
         // Start of the game test
         //Shuffle first 13 cards
@@ -63,24 +64,44 @@ public class SetUpPhase
         //Debug.Log("Deck cards:");
 
         //////Print them out to test
-        //foreach (var card in deck)
-        //    Debug.Log(card);
+        foreach (var card in deck)
+            Debug.Log(card);
     }
 
     public void SetResourceMarket()
     {
-        //getting the coal amount 
-        coal = getCoal();
+        ////getting the coal amount 
+        coal = getCoalFromFile("Assets/data/resources.dat");
 
         //getting the oil amount 
-        oil = getOil();
+        oil = getOilFromFile("Assets/data/resources.dat");
 
         //getting the garbage amount 
-        garbage = getGarbage();
+        garbage = getGarbageFromFile("Assets/data/resources.dat");
 
         //getting the nuclear amount 
-        nuclear = getNuclear();
+        nuclear = getNuclearFromFile("Assets/data/resources.dat");
 
+        //var results = this.readResourceFromFile("Assets/data/resources.dat", "oil");
+        foreach (var result in coal)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in oil)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in garbage)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in nuclear)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
     }   
 
     public void SetMapPlayerArea()
@@ -118,146 +139,150 @@ public class SetUpPhase
         //}
     }
 
-    private List<Card> getDefaultPowerPlantCards()
+    private List<Coal> getCoalFromFile(string path)
     {
-        List<Card> tempList = new List<Card>();
-
-        //Add 3 to 40
-        //for (int i = 3; i <= 40; i++)
-        //    tempList.Add(new PowerPlantCard(i));
-        tempList.Add(new PowerPlantCard(3, "Oil", false, 1, 2));
-        tempList.Add(new PowerPlantCard(4, "Coal", false, 1, 2));
-        tempList.Add(new PowerPlantCard(5, "Oil", true, 1, 2));
-        tempList.Add(new PowerPlantCard(6, "Garbage", false, 1, 1));
-        tempList.Add(new PowerPlantCard(7, "Oil", false, 2, 3));
-        tempList.Add(new PowerPlantCard(8, "Coal", false, 2, 3));
-        tempList.Add(new PowerPlantCard(9, "Oil", false, 1, 1));
-        tempList.Add(new PowerPlantCard(10, "Coal", false, 2, 2));
-        tempList.Add(new PowerPlantCard(11, "Nuclear", false, 2, 1));
-        tempList.Add(new PowerPlantCard(12, "Oil", true, 2, 2));
-        tempList.Add(new PowerPlantCard(13, "Nothing", false, 1, 0));
-        tempList.Add(new PowerPlantCard(14, "Garbage", false, 2, 2));
-        tempList.Add(new PowerPlantCard(15, "Coal", false, 3, 2));
-        tempList.Add(new PowerPlantCard(16, "Oil", false, 3, 2));
-        tempList.Add(new PowerPlantCard(17, "Nuclear", false, 2, 1));
-        tempList.Add(new PowerPlantCard(18, "Nothing", false, 2, 0));
-        tempList.Add(new PowerPlantCard(19, "Garbage", false, 3, 2));
-        tempList.Add(new PowerPlantCard(20, "Coal", false, 5, 3));
-        tempList.Add(new PowerPlantCard(21, "Oil", true, 4, 2));
-        tempList.Add(new PowerPlantCard(22, "Nothing", false, 2, 0));
-        tempList.Add(new PowerPlantCard(23, "Nuclear", false, 3, 1));
-        tempList.Add(new PowerPlantCard(24, "Garbage", false, 4, 2));
-        tempList.Add(new PowerPlantCard(25, "Coal", false, 5, 2));
-        tempList.Add(new PowerPlantCard(26, "Oil", false, 5, 2));
-        tempList.Add(new PowerPlantCard(27, "Nothing", false, 3, 0));
-        tempList.Add(new PowerPlantCard(28, "Nuclear", false, 4, 1));
-        tempList.Add(new PowerPlantCard(29, "Oil", true, 4, 1));
-        tempList.Add(new PowerPlantCard(30, "Garbage", false, 6, 3));
-        tempList.Add(new PowerPlantCard(31, "Coal", false, 6, 3));
-        tempList.Add(new PowerPlantCard(32, "Oil", false, 6, 3));
-        tempList.Add(new PowerPlantCard(33, "Nothing", false, 4, 0));
-        tempList.Add(new PowerPlantCard(34, "Nuclear", false, 5, 1));
-        tempList.Add(new PowerPlantCard(35, "Oil", false, 5, 1));
-        tempList.Add(new PowerPlantCard(36, "Coal", false, 7, 3));
-        tempList.Add(new PowerPlantCard(37, "Nothing", false, 4, 0));
-        tempList.Add(new PowerPlantCard(38, "Garbage", false, 7, 3));
-        tempList.Add(new PowerPlantCard(39, "Nuclear", false, 6, 1));
-        tempList.Add(new PowerPlantCard(40, "Oil", false, 6, 2));
-
-        //Add the weird ones
-        tempList.Add(new PowerPlantCard(42, "Coal", false, 6, 2));
-        tempList.Add(new PowerPlantCard(44, "Nothing", false, 5, 0));
-        tempList.Add(new PowerPlantCard(46, "Oil", true, 7, 3));
-        tempList.Add(new PowerPlantCard(50, "Nothing", false, 6, 0));
-
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "coal");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Coal(int.Parse(x), true)).ToList();
     }
 
-    private List<Coal> getCoal()
+    private List<Oil> getOilFromFile(string path)
     {
-        List<Coal> tempList = new List<Coal>();
-
-        //Add 24 coal
-        for (decimal i = 1; i <= 24; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            tempList.Add(new Coal((int)tempD, true));
-            //UnityEngine.Debug.Log(tempD);
-        }
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "oil");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Oil(int.Parse(x), true)).ToList();
     }
 
-    private List<Oil> getOil()
+    private List<Garbage> getGarbageFromFile(string path)
     {
-        List<Oil> tempList = new List<Oil>();
+        var data = this.readResourceFromFile(path, "garbage");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Garbage(int.Parse(x), true)).ToList();
+    }
 
-        //Add 24 oil
-        for (decimal i = 1; i <= 24; i++)
+    private List<Nuclear> getNuclearFromFile(string path)
+    {
+        var data = this.readResourceFromFile(path, "nuclear");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Nuclear(int.Parse(x), true)).ToList();
+    }
+
+    private List<string> readResourceFromFile(string path, string key) 
+    {
+        List<string> tempList = new List<string>();
+
+        //Get the contents of the file
+        var lines = File.ReadAllLines(path);
+
+        foreach (var line in lines)
         {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 7)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Oil((int)tempD, tempB));
-            //UnityEngine.Debug.Log("val="+tempD+"bool:"+tempB);
+            //Comment or empty, skip
+            if (line.Length == 0 || line[0] == '#' || line[0] == ' ' || string.IsNullOrWhiteSpace(line))
+                continue;
+
+            //splits the line into space-delimited chunks
+            var chunks = line.Split(' ');
+            if(chunks[0].StartsWith(key))
+            {
+                tempList.Add(chunks[1]);
+            }
         }
 
-        //Return the list 
         return tempList;
     }
 
-    private List<Garbage> getGarbage()
-    {
-        List<Garbage> tempList = new List<Garbage>();
+    //private List<Coal> getCoal()
+    //{
+    //    List<Coal> tempList = new List<Coal>();
 
-        //Add 24 garbage
-        for (decimal i = 1; i <= 24; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 16)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Garbage((int)tempD, tempB));
-            //UnityEngine.Debug.Log(tempD);
-        }
+    //    //Add 24 coal
+    //    for (decimal i = 1; i <= 24; i++)
+    //    {
+    //        decimal tempD = Math.Ceiling(i / 3);
+    //        int tempInt = (int)tempD;
+    //        tempList.Add(new Coal((int)tempD, true));
+    //        //UnityEngine.Debug.Log(tempD);
+    //    }
+    //    //Return the list 
+    //    return tempList;
+    //}
 
-        //Return the list 
-        return tempList;
-    }
+    //    private List<Oil> getOil()
+    //    {
+    //        List<Oil> tempList = new List<Oil>();
 
-    private List<Nuclear> getNuclear()
-    {
-        List<Nuclear> tempList = new List<Nuclear>();
+    //        //Add 24 oil
+    //        for (decimal i = 1; i <= 24; i++)
+    //        {
+    //            decimal tempD = Math.Ceiling(i / 3);
+    //            int tempInt = (int)tempD;
+    //            bool tempB;
+    //            if (i < 7)
+    //                tempB = false;
+    //            else
+    //                tempB = true;
+    //            tempList.Add(new Oil((int)tempD, tempB));
+    //            //UnityEngine.Debug.Log("val="+tempD+"bool:"+tempB);
+    //        }
 
-        //Add 12 nuclear
-        for (decimal i = 1; i <= 8; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 1);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 8)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Nuclear((int)tempD, tempB));
-            //UnityEngine.Debug.Log(tempD);
-        }
+    //        //Return the list 
+    //        return tempList;
+    //    }
 
-        tempList.Add(new Nuclear(10, true));
-        tempList.Add(new Nuclear(12, true));
-        tempList.Add(new Nuclear(14, true));
-        tempList.Add(new Nuclear(16, true));
+    //    private List<Garbage> getGarbage()
+    //    {
+    //        List<Garbage> tempList = new List<Garbage>();
 
-        //Return the list 
-        return tempList;
-    }
+    //        //Add 24 garbage
+    //        for (decimal i = 1; i <= 24; i++)
+    //        {
+    //            decimal tempD = Math.Ceiling(i / 3);
+    //            int tempInt = (int)tempD;
+    //            bool tempB;
+    //            if (i < 16)
+    //                tempB = false;
+    //            else
+    //                tempB = true;
+    //            tempList.Add(new Garbage((int)tempD, tempB));
+    //            //UnityEngine.Debug.Log(tempD);
+    //        }
+
+    //        //Return the list 
+    //        return tempList;
+    //    }
+
+    //    private List<Nuclear> getNuclear()
+    //    {
+    //        List<Nuclear> tempList = new List<Nuclear>();
+
+    //        //Add 12 nuclear
+    //        for (decimal i = 1; i <= 8; i++)
+    //        {
+    //            decimal tempD = Math.Ceiling(i / 1);
+    //            int tempInt = (int)tempD;
+    //            bool tempB;
+    //            if (i < 8)
+    //                tempB = false;
+    //            else
+    //                tempB = true;
+    //            tempList.Add(new Nuclear((int)tempD, tempB));
+    //            //UnityEngine.Debug.Log(tempD);
+    //        }
+
+    //        tempList.Add(new Nuclear(10, true));
+    //        tempList.Add(new Nuclear(12, true));
+    //        tempList.Add(new Nuclear(14, true));
+    //        tempList.Add(new Nuclear(16, true));
+
+    //        //Return the list 
+    //        return tempList;
+    //    }
 }

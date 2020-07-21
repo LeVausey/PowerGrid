@@ -4,8 +4,9 @@ using System;
 using System.IO;
 using UnityEngine;
 using System.Linq;
+using System.Diagnostics;
 
-public static class Deck 
+public static class Deck
 {
 
     public static IEnumerable<T> ShufflePortion<T>(this IEnumerable<T> list, int start, int end)
@@ -73,5 +74,34 @@ public static class Deck
     //    }
     //}
 
+    public static List<Card> LoadFromFile(string path)
+    {
+            List<Card> tempList = new List<Card>();
 
+            //Get the contents of the file
+            var lines = File.ReadAllLines(path);
+
+            foreach (var line in lines)
+            {
+                //Comment or empty, skip
+                if (line.Length == 0 || line[0] == '#' || line[0] == ' ' || string.IsNullOrWhiteSpace(line))
+                    continue;
+
+                //splits the line into space-delimited chunks
+                var chunks = line.Split(' ');
+                //UnityEngine.Debug.Log(chunks[0]);
+
+                var faceValue = int.Parse(chunks[0].Replace(":",""));
+                var resource = chunks[1].Replace(",", "");
+                bool isHybrid = bool.Parse(chunks[2].Replace(",", ""));
+                var powerCities = int.Parse(chunks[3].Replace(",", ""));
+                var resourceRequired = int.Parse(chunks[4].Replace(",", ""));
+
+                var card = new PowerPlantCard(faceValue, resource, isHybrid, powerCities, resourceRequired);
+
+                tempList.Add(card);
+            }
+
+            return tempList;
+    }
 }
