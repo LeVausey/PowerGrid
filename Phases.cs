@@ -13,6 +13,7 @@ public class Phases
     public int playerOrder;
 
     public List<Player> players = new List<Player>();
+    public List<Player> bidders;
 
     public List<Card> deck;
     public List<Card> drawedCards;
@@ -80,19 +81,80 @@ public class Phases
         phaseNum = 2;
 
         //playerOrder
-        //foreach (var player in players)
-        //{
-        //while(bool)
-        //{
-            //choose a card
-            //var randomCard = player.FindRandomCard();
+        foreach (var player in players)
+        {
+            //for i in range(0, len(player_money))
+            //{
+            //    print("player %d has £%d" % (i, player_money[i]));
+            //    print("-" * 50);
+            //}
 
-            //buy card
-            //player.BuyCard(randomCard);
-        //}
+            ////Number of bidders initially
+            //bidders = len(player_money);
 
-        //}
+            ////How much to increment each bid by and the current bid
+            //bid_increment = 100;
+            //current_bid = card_price;
 
+            ////The upper limit factor
+            //upper_limit_factor = 5;
+
+            ////Last bidder info
+            //last_bidder = -1;
+
+            //print("starting auction of %s, price is £%d" % (card_name, card_price));
+
+            //while (bidders > 1)
+            //{
+            //bidders = 0;
+            //for (i in range(0, len(player_money)))
+            //{
+                ////Get the money of this player
+                //money = player_money[i];
+
+                ////Compute their chances
+                //chance = (money - current_bid - bid_increment) / (card_price * upper_limit_factor);
+
+                ////Roll a dice between 0 and 1 (use random.value in unity)
+                //    diceRoll = random.random();
+
+                ////Is the random chance satisfied? If so, increase the bid, add to the number of bidders this round, and set last bidder
+                //if diceRoll <= chance
+                //{
+                    //current_bid += bid_increment;
+                    //print("[£%-4d] player %d bidded £%d (%.1f%% chance)" % (current_bid, i, bid_increment, chance * 100));
+                    //bidders += 1;
+                    //last_bidder = i;
+                //}
+
+
+                ////Otherwise, show that they skipped it
+                //else
+                //{
+                //print("[£%-4d] player %d skipped (%.1f%% chance)" % (current_bid, i, chance * 100));
+                //}
+            //}
+
+
+
+            //# At this point, bidders = 1 or 0 so print out information:
+            //if(bidders == 0 and last_bidder == -1)
+            //{
+            //print("> nobody bought the card.");
+            //}
+
+            //else
+            //{
+            //  print("> card was bought by player %d for £%d" % (last_bidder, current_bid));
+            //player_money[last_bidder] -= current_bid;
+            //}
+
+            //print("-" * 50);
+            //for i in range(0, len(player_money)):
+
+            //print("player %d has £%d" % (i, player_money[i]));
+            //}
+        }
     }
 
     public void PhaseThree()
@@ -107,10 +169,10 @@ public class Phases
         //    //Get the player at this index
         //    var player = players[i];
 
-        //    //Choose a random city
+        //    //Choose a random resource
         //    var randomResource = player.FindRandomResource();
 
-        //    //Buy the random city
+        //    //Buy the random resource
         //    player.BuyResource(randomResource);
         //}
         //}
