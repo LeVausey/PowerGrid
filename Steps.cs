@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -20,34 +21,76 @@ public class Steps
     {
         step = 1;
 
-        //getting the coal amount 
-        coal = stepOneCoal();
+        ////getting the coal amount 
+        coal = getStepOneCoalFromFile("Assets/data/resources_step_one.dat");
 
         //getting the oil amount 
-        oil = stepOneOil();
+        oil = getStepOneOilFromFile("Assets/data/resources_step_ones.dat");
 
         //getting the garbage amount 
-        garbage = stepOneGarbage();
+        garbage = getStepOneGarbageFromFile("Assets/data/resources_step_one.dat");
 
         //getting the nuclear amount 
-        nuclear = stepOneNuclear();       
+        nuclear = getStepOneNuclearFromFile("Assets/data/resources_step_one.dat");
+
+        //var results = this.readResourceFromFile("Assets/data/resources.dat", "oil");
+        foreach (var result in coal)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in oil)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in garbage)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in nuclear)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
     }
 
     public void StepTwo()
     {
         step = 2;
 
-        //getting the coal amount 
-        coal = stepTwoCoal();
+        ////getting the coal amount 
+        coal = getStepTwoCoalFromFile("Assets/data/resources_step_two.dat");
 
         //getting the oil amount 
-        oil = stepTwoOil();
+        oil = getStepTwoOilFromFile("Assets/data/resources_step_two.dat");
 
         //getting the garbage amount 
-        garbage = stepTwoGarbage();
+        garbage = getStepTwoGarbageFromFile("Assets/data/resources_step_two.dat");
 
         //getting the nuclear amount 
-        nuclear = stepTwoNuclear();
+        nuclear = getStepTwoNuclearFromFile("Assets/data/resources_step_two.dat");
+
+        //var results = this.readResourceFromFile("Assets/data/resources.dat", "oil");
+        foreach (var result in coal)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in oil)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in garbage)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in nuclear)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
 
         //Open building slot 2
 
@@ -59,17 +102,38 @@ public class Steps
     {
         step = 3;
 
-        //getting the coal amount 
-        coal = stepThreeCoal();
+        ////getting the coal amount 
+        coal = getStepThreeCoalFromFile("Assets/data/resources_step_three.dat");
 
         //getting the oil amount 
-        oil = stepThreeOil();
+        oil = getStepThreeOilFromFile("Assets/data/resources_step_three.dat");
 
         //getting the garbage amount 
-        garbage = stepThreeGarbage();
+        garbage = getStepThreeGarbageFromFile("Assets/data/resources_step_three.dat");
 
         //getting the nuclear amount 
-        nuclear = stepThreeNuclear();
+        nuclear = getStepThreeNuclearFromFile("Assets/data/resources_step_three.dat");
+
+        //var results = this.readResourceFromFile("Assets/data/resources.dat", "oil");
+        foreach (var result in coal)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in oil)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in garbage)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
+
+        foreach (var result in nuclear)
+        {
+            UnityEngine.Debug.Log(result.faceValue);
+        }
 
         //Open building slot 3
 
@@ -77,274 +141,138 @@ public class Steps
         //drawedCards.Remove(drawedCards.Min());
     }
 
-    private List<Coal> stepOneCoal()
+    //Step one resources
+    private List<Coal> getStepOneCoalFromFile(string path)
     {
-        List<Coal> tempList = new List<Coal>();
-
-        //Add 4 coal
-        for (decimal i = 1; i <= 24; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 4)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Coal((int)tempD, tempB));
-            //UnityEngine.Debug.Log(tempD);
-        }
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "coal");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Coal(int.Parse(x), true)).ToList();
     }
 
-    private List<Oil> stepOneOil()
+    private List<Oil> getStepOneOilFromFile(string path)
     {
-        List<Oil> tempList = new List<Oil>();
-
-        //Add 2 oil
-        for (decimal i = 1; i <= 24; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 5)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Oil((int)tempD, tempB));
-            //UnityEngine.Debug.Log("val="+tempD+"bool:"+tempB);
-        }
-
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "oil");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Oil(int.Parse(x), true)).ToList();
     }
 
-    private List<Garbage> stepOneGarbage()
+    private List<Garbage> getStepOneGarbageFromFile(string path)
     {
-        List<Garbage> tempList = new List<Garbage>();
-
-        //Add 1 garbage
-        for (decimal i = 1; i <= 24; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 15)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Garbage((int)tempD, tempB));
-            //UnityEngine.Debug.Log(tempD);
-        }
-
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "garbage");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Garbage(int.Parse(x), true)).ToList();
     }
 
-    private List<Nuclear> stepOneNuclear()
+    private List<Nuclear> getStepOneNuclearFromFile(string path)
     {
-        List<Nuclear> tempList = new List<Nuclear>();
-
-        //Add 1 nuclear
-        for (decimal i = 1; i <= 8; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 1);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 7)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Nuclear((int)tempD, tempB));
-            //UnityEngine.Debug.Log(tempD);
-        }
-
-        tempList.Add(new Nuclear(10, true));
-        tempList.Add(new Nuclear(12, true));
-        tempList.Add(new Nuclear(14, true));
-        tempList.Add(new Nuclear(16, true));
-
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "nuclear");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Nuclear(int.Parse(x), true)).ToList();
     }
 
-    private List<Coal> stepTwoCoal()
+    //Step two resources
+    private List<Coal> getStepTwoCoalFromFile(string path)
     {
-        List<Coal> tempList = new List<Coal>();
-
-        //Add 5 coal
-        for (decimal i = 1; i <= 24; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 4)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Coal((int)tempD, true));
-            //UnityEngine.Debug.Log(tempD);
-        }
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "coal");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Coal(int.Parse(x), true)).ToList();
     }
 
-    private List<Oil> stepTwoOil()
+    private List<Oil> getStepTwoOilFromFile(string path)
     {
-        List<Oil> tempList = new List<Oil>();
-
-        //Add 3 oil
-        for (decimal i = 1; i <= 24; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 7)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Oil((int)tempD, tempB));
-            //UnityEngine.Debug.Log("val="+tempD+"bool:"+tempB);
-        }
-
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "oil");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Oil(int.Parse(x), true)).ToList();
     }
 
-    private List<Garbage> stepTwoGarbage()
+    private List<Garbage> getStepTwoGarbageFromFile(string path)
     {
-        List<Garbage> tempList = new List<Garbage>();
-
-        //Add 2 garbage
-        for (decimal i = 1; i <= 24; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 16)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Garbage((int)tempD, tempB));
-            //UnityEngine.Debug.Log(tempD);
-        }
-
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "garbage");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Garbage(int.Parse(x), true)).ToList();
     }
 
-    private List<Nuclear> stepTwoNuclear()
+    private List<Nuclear> getStepTwoNuclearFromFile(string path)
     {
-        List<Nuclear> tempList = new List<Nuclear>();
-
-        //Add 1 nuclear
-        for (decimal i = 1; i <= 8; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 1);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 8)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Nuclear((int)tempD, tempB));
-            //UnityEngine.Debug.Log(tempD);
-        }
-
-        tempList.Add(new Nuclear(10, true));
-        tempList.Add(new Nuclear(12, true));
-        tempList.Add(new Nuclear(14, true));
-        tempList.Add(new Nuclear(16, true));
-
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "nuclear");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Nuclear(int.Parse(x), true)).ToList();
     }
 
-    private List<Coal> stepThreeCoal()
+    //Step three resources
+    private List<Coal> getStepThreeCoalFromFile(string path)
     {
-        List<Coal> tempList = new List<Coal>();
-
-        //Add 3 coal
-        for (decimal i = 1; i <= 24; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 4)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Coal((int)tempD, true));
-            //UnityEngine.Debug.Log(tempD);
-        }
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "coal");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Coal(int.Parse(x), true)).ToList();
     }
 
-    private List<Oil> stepThreeOil()
+    private List<Oil> getStepThreeOilFromFile(string path)
     {
-        List<Oil> tempList = new List<Oil>();
-
-        //Add 4 oil
-        for (decimal i = 1; i <= 24; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 3)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Oil((int)tempD, tempB));
-            //UnityEngine.Debug.Log("val="+tempD+"bool:"+tempB);
-        }
-
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "oil");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Oil(int.Parse(x), true)).ToList();
     }
 
-    private List<Garbage> stepThreeGarbage()
+    private List<Garbage> getStepThreeGarbageFromFile(string path)
     {
-        List<Garbage> tempList = new List<Garbage>();
-
-        //Add 4 garbage
-        for (decimal i = 1; i <= 24; i++)
-        {
-            decimal tempD = Math.Ceiling(i / 3);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 12)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Garbage((int)tempD, tempB));
-            //UnityEngine.Debug.Log(tempD);
-        }
-
-        //Return the list 
-        return tempList;
+        var data = this.readResourceFromFile(path, "garbage");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Garbage(int.Parse(x), true)).ToList();
     }
 
-    private List<Nuclear> stepThreeNuclear()
+    private List<Nuclear> getStepThreeNuclearFromFile(string path)
     {
-        List<Nuclear> tempList = new List<Nuclear>();
+        var data = this.readResourceFromFile(path, "nuclear");
+        var resource = data[0];
+        var cost = data[1];
+        var start = int.Parse(data[2]);
+        return cost.Split(',').Select(x => new Nuclear(int.Parse(x), true)).ToList();
+    }
 
-        //Add 1 nuclear
-        for (decimal i = 1; i <= 8; i++)
+    private List<string> readResourceFromFile(string path, string key)
+    {
+        List<string> tempList = new List<string>();
+
+        //Get the contents of the file
+        var lines = File.ReadAllLines(path);
+
+        foreach (var line in lines)
         {
-            decimal tempD = Math.Ceiling(i / 1);
-            int tempInt = (int)tempD;
-            bool tempB;
-            if (i < 6)
-                tempB = false;
-            else
-                tempB = true;
-            tempList.Add(new Nuclear((int)tempD, tempB));
-            //UnityEngine.Debug.Log(tempD);
+            //Comment or empty, skip
+            if (line.Length == 0 || line[0] == '#' || line[0] == ' ' || string.IsNullOrWhiteSpace(line))
+                continue;
+
+            //splits the line into space-delimited chunks
+            var chunks = line.Split(' ');
+            if (chunks[0].StartsWith(key))
+            {
+                tempList.Add(chunks[1]);
+            }
         }
 
-        //Return the list 
         return tempList;
     }
 }
