@@ -63,17 +63,17 @@ public class Player
     */
     //public Resources ResourceFindRandom()
     //{
-    ////Their resources
-    //var playerResource = this.playerCoal;
-    //var playerResource = this.playerOil;
-    //var playerResource = this.playerGarbage;
-    //var playerResource = this.playerNuclear;
+        ////Their resources
+        //var playerResource = this.playerCoal;
+        //var playerResource = this.playerOil;
+        //var playerResource = this.playerGarbage;
+        //var playerResource = this.playerNuclear;
 
-    ////Choose a random card
-    //var randomResource = playerResource[Random.Range(0, playerResource.Count)];
+        ////Choose a random resources
+        //var randomResource = playerResource[Random.Range(0, playerResource.Count)];
 
-    ////And return this random card:
-    //return randomResource;
+        ////And return this random resources
+        //return randomResource;
     //}
 
     /**
@@ -135,6 +135,32 @@ public class Player
         }
         else
             Debug.Log("you dont have enough money!");
+    }
+
+    public void PowerCity(City city, PowerPlantCard powerPlantCard)
+    {
+        //if (playerPowerPlants >= city.playerCities)
+        //{
+        //    if (playerCoal)
+        //    {
+        //        playerCoal -= city.playerCities;
+        //    }
+
+        //    for (playerOil)
+        //    {
+        //        playerOil -= city.playerCities;
+        //    }
+
+        //    for (playerGarbage)
+        //    {
+        //        playerGarbage -= city.playerCities;
+        //    }
+
+        //    for (playerNuclear)
+        //    {
+        //        playerNuclear -= city.playerCities;
+        //    }
+        //}
     }
 }
 

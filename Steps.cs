@@ -17,6 +17,11 @@ public class Steps
     public List<Card> deck;
     public List<Card> drawedCards;
 
+    public List<BuildingSlot> buildingSlots;
+
+    public Sector sector;
+
+    
     public void StepOne()
     {
         step = 1;
@@ -25,7 +30,7 @@ public class Steps
         coal = getStepOneCoalFromFile("Assets/data/resources_step_one.dat");
 
         //getting the oil amount 
-        oil = getStepOneOilFromFile("Assets/data/resources_step_ones.dat");
+        oil = getStepOneOilFromFile("Assets/data/resources_step_one.dat");
 
         //getting the garbage amount 
         garbage = getStepOneGarbageFromFile("Assets/data/resources_step_one.dat");
@@ -93,6 +98,8 @@ public class Steps
         }
 
         //Open building slot 2
+        buildingSlots.Add(new BuildingSlot(15));
+
 
         //Power Plant Market
         //drawedCards.Remove(drawedCards.Min());
@@ -136,6 +143,7 @@ public class Steps
         }
 
         //Open building slot 3
+        buildingSlots.Add(new BuildingSlot(20));
 
         //Power Plant Market
         //drawedCards.Remove(drawedCards.Min());
@@ -147,7 +155,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "coal");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Coal(int.Parse(x), true)).ToList();
     }
 
@@ -156,7 +164,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "oil");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Oil(int.Parse(x), true)).ToList();
     }
 
@@ -165,7 +173,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "garbage");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Garbage(int.Parse(x), true)).ToList();
     }
 
@@ -174,7 +182,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "nuclear");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Nuclear(int.Parse(x), true)).ToList();
     }
 
@@ -184,7 +192,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "coal");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Coal(int.Parse(x), true)).ToList();
     }
 
@@ -193,7 +201,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "oil");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Oil(int.Parse(x), true)).ToList();
     }
 
@@ -202,7 +210,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "garbage");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Garbage(int.Parse(x), true)).ToList();
     }
 
@@ -211,7 +219,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "nuclear");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Nuclear(int.Parse(x), true)).ToList();
     }
 
@@ -221,7 +229,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "coal");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Coal(int.Parse(x), true)).ToList();
     }
 
@@ -230,7 +238,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "oil");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Oil(int.Parse(x), true)).ToList();
     }
 
@@ -239,7 +247,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "garbage");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Garbage(int.Parse(x), true)).ToList();
     }
 
@@ -248,7 +256,7 @@ public class Steps
         var data = this.readResourceFromFile(path, "nuclear");
         var resource = data[0];
         var cost = data[1];
-        var start = int.Parse(data[2]);
+        var refill = int.Parse(data[2]);
         return cost.Split(',').Select(x => new Nuclear(int.Parse(x), true)).ToList();
     }
 
