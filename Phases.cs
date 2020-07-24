@@ -14,6 +14,7 @@ public class Phases
 
     public List<Player> players = new List<Player>();
     public List<Player> bidders;
+    public List<Player> nonBidders;
     public Player playerElektro;
 
     public List<Card> deck;
@@ -84,77 +85,63 @@ public class Phases
         //playerOrder
         foreach (var player in players)
         {
-            for (0, (playerElektro))
-            {
-                print("player %d has £%d" % (i, player_money[i]));
-                print("-" * 50);
-            }
+            //bool bidButtonClicked;
 
-            ////Number of bidders initially
-            //bidders = len(player_money);
+            //////Number of bidders initially
+            //int toBid = UnityEngine.Random.Range(0, 1);
 
-            ////How much to increment each bid by and the current bid
-            //bid_increment = 100;
-            //current_bid = card_price;
+            //if (toBid == 0)
+            //{
+            //    //dont bid
+            //    bidButtonClicked = false;
+            //}
 
-            ////The upper limit factor
-            //upper_limit_factor = 5;
+            //if (toBid == 1)
+            //{
+            //    bidButtonClicked = true;
+            //}
 
-            ////Last bidder info
-            //last_bidder = -1;
+            //if (bidButtonClicked == true)
+            //{
+            //    //    bidders.Add(player);
+            //}
 
-            //print("starting auction of %s, price is £%d" % (card_name, card_price));
+            //bidders money = player_money
+            //if (playerElektro > base value + current_bid)
+            //{
+            //    //want to bid = false;
+            //    //randomly choose is they still want to bid or not
+            //}    
+
+            //if (want to bid == true)
+            //{
+            //current_bid += incrementvalue
+            //}
+            //Player_Money - current_bid
+            //}
 
             //while (bidders > 1)
             //{
-            //bidders = 0;
-            //for (i in range(0, len(player_money)))
-            //{
-            ////Get the money of this player
-            //money = player_money[i];
+                //bidders = 0;
+                //for (i in range(0, len(player_money)))
+                //{
+                ////Get the money of this player
+                //money = playerElektro[i];
 
-            ////Compute their chances
-            //chance = (money - current_bid - bid_increment) / (card_price * upper_limit_factor);
+                ////Compute their chances
+                //chance = (money - current_bid - bid_increment) / (card_price * upper_limit_factor);
 
-            ////Roll a dice between 0 and 1 (use random.value in unity)
-            //    diceRoll = random.random();
+                ////Roll a dice between 0 and 1 
+                //    diceRoll = Random.value();
 
-            ////Is the random chance satisfied? If so, increase the bid, add to the number of bidders this round, and set last bidder
-            //if diceRoll <= chance
-            //{
-            //current_bid += bid_increment;
-            //print("[£%-4d] player %d bidded £%d (%.1f%% chance)" % (current_bid, i, bid_increment, chance * 100));
-            //bidders += 1;
-            //last_bidder = i;
+                ////Is the random chance satisfied? If so, increase the bid, add to the number of bidders this round, and set last bidder
+                //if diceRoll <= chance
+                //{
+                //current_bid += bid_increment;
+                //bidders += 1;
+                //last_bidder = i;
             //}
 
-
-            ////Otherwise, show that they skipped it
-            //else
-            //{
-            //print("[£%-4d] player %d skipped (%.1f%% chance)" % (current_bid, i, chance * 100));
-            //}
-            //}
-
-
-
-            //# At this point, bidders = 1 or 0 so print out information:
-            //if(bidders == 0 and last_bidder == -1)
-            //{
-            //print("> nobody bought the card.");
-            //}
-
-            //else
-            //{
-            //  print("> card was bought by player %d for £%d" % (last_bidder, current_bid));
-            //player_money[last_bidder] -= current_bid;
-            //}
-
-            //print("-" * 50);
-            //for i in range(0, len(player_money)):
-
-            //print("player %d has £%d" % (i, player_money[i]));
-            //}
         }
     }
 
