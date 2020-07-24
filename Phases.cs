@@ -124,7 +124,7 @@ public class Phases
                 //Player_Money - current_bid
                 //}
 
-                //for (i in range(0, len(player_money)))
+                //for (i in range(0,(playerElektro)))
                 //{
                 ////Get the money of this player
                 //money = playerElektro[i];
@@ -133,7 +133,7 @@ public class Phases
                 //chance = (money - current_bid - bid_increment) / (card_price * upper_limit_factor);
 
                 ////Roll a dice between 0 and 1 
-                //    diceRoll = Random.value();
+                //diceRoll = Random.value();
 
                 ////Is the random chance satisfied? If so, increase the bid, add to the number of bidders this round, and set last bidder
                 //if diceRoll <= chance
