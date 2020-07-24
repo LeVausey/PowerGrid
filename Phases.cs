@@ -106,23 +106,25 @@ public class Phases
             //    //    bidders.Add(player);
             //}
 
-            //bidders money = player_money
-            //if (playerElektro > base value + current_bid)
-            //{
-            //    //want to bid = false;
-            //    //randomly choose is they still want to bid or not
-            //}    
-
-            //if (want to bid == true)
-            //{
-            //current_bid += incrementvalue
-            //}
-            //Player_Money - current_bid
-            //}
 
             //while (bidders > 1)
             //{
                 //bidders = 0;
+
+                //bidders money = player_money
+                //if (playerElektro > base value + current_bid)
+                //{
+                //    //want to bid = false;
+                //    //randomly choose is they still want to bid or not
+                //}    
+
+                //if (want to bid == true)
+                //{
+                //current_bid += incrementvalue
+                //}
+                //Player_Money - current_bid
+                //}
+
                 //for (i in range(0, len(player_money)))
                 //{
                 ////Get the money of this player
@@ -202,7 +204,7 @@ public class Phases
                
                 //var powerCity = player.PowerCity();
 
-               //PowerCity(powerCity) = player.PowerCity(poweredplayercities);
+                //PowerCity(powerCity) = player.PowerCity(poweredplayercities);
                
                 //for (poweredplayercities = 0)
                 //{
