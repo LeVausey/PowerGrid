@@ -45,8 +45,7 @@ public class City
 
         //Setup three default building slots for each city
         buildingSlots.Add(new BuildingSlot(10));
-        buildingSlots.Add(new BuildingSlot(15));
-        buildingSlots.Add(new BuildingSlot(20));
+    
     }
 
     /// <summary>
@@ -65,8 +64,6 @@ public class City
 
         //Setup three default building slots for each city
         buildingSlots.Add(new BuildingSlot(10));
-        buildingSlots.Add(new BuildingSlot(15));
-        buildingSlots.Add(new BuildingSlot(20));
     }
 }
 

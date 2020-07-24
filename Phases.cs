@@ -106,10 +106,9 @@ public class Phases
             //    //    bidders.Add(player);
             //}
 
-
             //while (bidders > 1)
             //{
-                //bidders = 0;
+                //bidders = 0;+
 
                 //bidders money = player_money
                 //if (playerElektro > base value + current_bid)
@@ -331,7 +330,6 @@ public class Phases
                 //    // code block to be executed
                 //    add.playerelektro(150)
                 //}
-                ////restockresources
             }
 
         }
