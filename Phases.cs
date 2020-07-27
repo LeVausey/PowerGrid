@@ -117,13 +117,15 @@ public class Phases
                 //    //randomly choose is they still want to bid or not
                 //}    
 
+                //
                 //if (want to bid == true)
                 //{
                 //current_bid += incrementvalue
                 //}
                 //Player_Money - current_bid
                 //}
-
+                
+                //setting the range of the Elektro
                 //for (i in range(0,(playerElektro)))
                 //{
                 ////Get the money of this player
@@ -132,17 +134,7 @@ public class Phases
                 ////Compute their chances
                 //chance = (money - current_bid - bid_increment) / (card_price * upper_limit_factor);
 
-                ////Roll a dice between 0 and 1 
-                //diceRoll = Random.value();
-
-                ////Is the random chance satisfied? If so, increase the bid, add to the number of bidders this round, and set last bidder
-                //if diceRoll <= chance
-                //{
-                //current_bid += bid_increment;
-                //bidders += 1;
-                //last_bidder = i;
             //}
-
         }
     }
 
