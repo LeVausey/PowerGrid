@@ -1,5 +1,6 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Player
@@ -54,7 +55,7 @@ public class Player
             playerElektro -= powerPlantCard.faceValue;
         }
         else
-            Debug.Log("you dont have enough money!");
+            UnityEngine.Debug.Log("you dont have enough money!");
     }
 
 
@@ -134,7 +135,17 @@ public class Player
             playerElektro -= city.buildingSlots[0].price;
         }
         else
-            Debug.Log("you dont have enough money!");
+            UnityEngine.Debug.Log("you dont have enough money!");
+    }
+
+    public void playerCity(City city)
+    {
+        string result = "";
+        foreach (var listMember in playerBuildings)
+        {
+            result += listMember.ToString() + "\n";
+        }
+        //return result;
     }
 
     public void PowerCity(City city, PowerPlantCard powerPlantCard)
