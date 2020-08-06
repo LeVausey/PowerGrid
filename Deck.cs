@@ -55,16 +55,6 @@ public static class Deck
         return itemsToReturn;
     }
 
-    public static IEnumerable<T> PickDrawnCard<T>(this IEnumerable<T> list, int start, int end)
-    {
-        //Take out the range of things
-        var itemsToReturn = list.Skip(start).Take(end - start + 1);
-
-        //return extracted
-        return itemsToReturn;
-    }
-
-
     public static IEnumerable<T> LogQuery<T>(this IEnumerable<T> sequence, string tag)
     {
         // File.AppendText creates a new file if the file doesn't exist.

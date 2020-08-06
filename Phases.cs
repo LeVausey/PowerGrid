@@ -18,22 +18,20 @@ public class Phases
 
     public int current_bid;
     public int price_increment;
+    public int biddableCount = 4;
     public Player player;
 
     public List<Player> players = new List<Player>();
     public List<Player> bidders;
     public List<Player> nonBidders;
-    public int playerElektro;
-    public T Selection { get; }
-    public Player HighBidder { get; }
-    public int HighBid { get; }
-    public T Selection { get; }
-    public Player HighBidder { get; }
-    public int HighBid { get; }
     public List<Card> deck;
     public List<Card> drawedCards;
     public List<Card> chosenCard;
-    public List<Card> playerPowerPlants;
+    public List<Card> playerPowerPlant;
+
+    public int playerElektro;
+    public PowerPlantCard selectedPlant = null;
+    public int currentBid;
 
     public List<Coal> coal;
     public List<Oil> oil;
@@ -92,21 +90,7 @@ public class Phases
         }
     }
 
-    public Auction(T selection, Player highBidder, int currentBid, List<Player> participants)
-    {
-        Selection = selection;
-        HighBidder = highBidder;
-        HighBid = currentBid;
-        Participants = participants;
-    }
-
-    public Player GetPlayerAfter(Player player) => Participants.GetPlayerAfter(player);
-    public Player GetNextPlayer() => GetPlayerAfter(HighBidder);
-    public bool IsComplete => Participants.Count == 1;
-
-    public Auction<T> MakeBid(T selection, Player player, int bid) => new Auction<T>(selection, player, bid, Participants);
-    public Auction<T> Pass(Player player) => new Auction<T>(Selection, HighBidder, HighBid, Participants.Remove(player));
-
+    
     public void PhaseTwo()
     {
         phaseNum = 2;
@@ -114,7 +98,7 @@ public class Phases
         //playerOrder
         foreach (var player in players)
         {
-            chosenCard = drawedCards.PickDrawnCard(0).ToList();
+            SetSelectedPlant();
 
             ////Number of bidders initially
             int toBid = UnityEngine.Random.Range(0, 1);
@@ -152,15 +136,11 @@ public class Phases
                     {
                         //bidders.element(player) buys card
 
-                        player.BuyCard(playerPowerPlant);
+                        player.BuyCard();
                         drawedCards = deck.Draw(0).ToList();
                     }
                 }
             }
-
-
-
-
         }  
     }
 
@@ -352,5 +332,27 @@ public class Phases
 
         }
     }
-   
+
+
+    public void SetSelectedPlant(PowerPlantCard p)
+    {
+
+
+        bool isBiddable = true;
+        for (int i = biddableCount; i < drawedCards.Count; i++)
+        {
+            if (((PowerPlantCard)drawedCards[i]) == p)
+            {
+                isBiddable = false;
+                break;
+            }
+        }
+
+        if (!isBiddable)
+            return;
+
+        selectedPlant = p;
+        currentBid = p.faceValue;
+    }
+
 }
