@@ -18,14 +18,21 @@ public class Phases
 
     public int current_bid;
     public int price_increment;
+    public Player player;
 
     public List<Player> players = new List<Player>();
     public List<Player> bidders;
     public List<Player> nonBidders;
     public int playerElektro;
-
+    public T Selection { get; }
+    public Player HighBidder { get; }
+    public int HighBid { get; }
+    public T Selection { get; }
+    public Player HighBidder { get; }
+    public int HighBid { get; }
     public List<Card> deck;
     public List<Card> drawedCards;
+    public List<Card> chosenCard;
     public List<Card> playerPowerPlants;
 
     public List<Coal> coal;
@@ -75,15 +82,30 @@ public class Phases
 
         if (turn > 1)
         {
-            for (i = 0; i > player; i++)
-            {
-                int cityCounter = City.Count;
-                playerCityCount.Add(cityCount);
-            }
-            List.Sort(playerCityCount);
-            playerCityCount[playerCityCount.length - 1];
+            //for (i = 0; i > player; i++)
+            //{
+            //    int cityCounter = City.Count;
+            //    playerCityCount.Add(cityCount);
+            //}
+            //List.Sort(playerCityCount);
+            //playerCityCount[playerCityCount.length - 1];
         }
     }
+
+    public Auction(T selection, Player highBidder, int currentBid, List<Player> participants)
+    {
+        Selection = selection;
+        HighBidder = highBidder;
+        HighBid = currentBid;
+        Participants = participants;
+    }
+
+    public Player GetPlayerAfter(Player player) => Participants.GetPlayerAfter(player);
+    public Player GetNextPlayer() => GetPlayerAfter(HighBidder);
+    public bool IsComplete => Participants.Count == 1;
+
+    public Auction<T> MakeBid(T selection, Player player, int bid) => new Auction<T>(selection, player, bid, Participants);
+    public Auction<T> Pass(Player player) => new Auction<T>(Selection, HighBidder, HighBid, Participants.Remove(player));
 
     public void PhaseTwo()
     {
@@ -92,6 +114,7 @@ public class Phases
         //playerOrder
         foreach (var player in players)
         {
+            chosenCard = drawedCards.PickDrawnCard(0).ToList();
 
             ////Number of bidders initially
             int toBid = UnityEngine.Random.Range(0, 1);
@@ -114,7 +137,7 @@ public class Phases
 
 
             //setting the range of the Elektro
-            foreach(int value in Enumerable.Range(0, (playerElektro)))
+            foreach (int value in Enumerable.Range(0, (playerElektro)))
             {
                 //Get the money of this player
                 var money = playerElektro[i];
@@ -124,14 +147,18 @@ public class Phases
                 {
                     //player bids w.e you want to do here probs players_money - current_bid + increment
                     toBid = UnityEngine.Random.Range(0, 1);
+
                     if (bidders.count == 1)
                     {
                         //bidders.element(player) buys card
 
-                        player.BuyCard();
+                        player.BuyCard(playerPowerPlant);
+                        drawedCards = deck.Draw(0).ToList();
                     }
                 }
             }
+
+
 
 
         }  
@@ -167,8 +194,7 @@ public class Phases
 
         for (int i = players.Count; i > 0; i--)
         {
-            //while(bool)
-            //{
+            
             //Get the player at this index
             var player = players[i];
 
@@ -177,7 +203,7 @@ public class Phases
 
             //Buy the random city
             player.BuyCity(randomCity);
-            //}
+           
         }
     }
 
@@ -326,4 +352,5 @@ public class Phases
 
         }
     }
+   
 }
