@@ -100,6 +100,15 @@ public class Phases
         {
             SetSelectedPlant();
 
+            if (selectedPlant == null)
+                return;
+            if (selectedPlant.purchased)//can't purchase already purchased plant
+                return;
+            if (p.cash < currentBid)
+                return;
+            if (p.powerPlants.Count >= maxPowerPlants)
+                return;
+
             ////Number of bidders initially
             int toBid = UnityEngine.Random.Range(0, 1);
 
@@ -332,7 +341,6 @@ public class Phases
 
         }
     }
-
 
     public void SetSelectedPlant(PowerPlantCard p)
     {
