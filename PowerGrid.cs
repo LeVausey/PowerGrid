@@ -26,13 +26,15 @@ public class PowerGrid : MonoBehaviour
     public Phases phases = new Phases();
     public Steps steps = new Steps();
 
+    private static ILogger logger = Debug.unityLogger;
+    private static string kTAG = "MyGameTag";
+    private MyFileLogHandler myFileLogHandler;
+
     // Start is called before the first frame update
     void Start()
     {
-
-        //myLogger = new Logger(new MyLogHandler());
-
-        //myLogger.Log(kTAG, "MyGameClass Start.");
+        myLogger = new Logger(new MyLogHandler());
+        myLogger.Log(kTAG, "MyGameClass Start.");
 
         map = new Map("Green", "Assets/data/germany-sectors.dat", "Assets/data/germany-connections.dat");
         map.FindAdjacentSectorData();
@@ -233,15 +235,32 @@ public class scoringTrack
 
 }
 
-//public class MyLogHandler : ILogHandler
-//{
-//    //public void LogFormat(LogType logType, UnityEngine.Object context, string format, params object[] args)
-//    //{
-//    //    UnityEngine.Debug.unityLogger.logHandler.LogFormat(logType, context, format, args);
-//    //}
+public class MyLogHandler : ILogHandler
+{
+    private FileStream m_FileStream;
+    private StreamWriter m_StreamWriter;
+    private ILogHandler m_DefaultLogHandler = Debug.unityLogger.logHandler;
 
-//    //public void LogException(Exception exception, UnityEngine.Object context)
-//    //{
-//    //    UnityEngine.Debug.unityLogger.LogException(exception, context);
-//    //}
-//}
+    public MyFileLogHandler()
+    {
+        string filePath = Application.persistentDataPath + "/MyLogs.txt";
+
+        m_FileStream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        m_StreamWriter = new StreamWriter(m_FileStream);
+
+        // Replace the default debug log handler
+        Debug.unityLogger.logHandler = this;
+    }
+
+    public void LogFormat(LogType logType, UnityEngine.Object context, string format, params object[] args)
+    {
+        m_StreamWriter.WriteLine(String.Format(format, args));
+        m_StreamWriter.Flush();
+        m_DefaultLogHandler.LogFormat(logType, context, format, args);
+    }
+
+    public void LogException(Exception exception, UnityEngine.Object context)
+    {
+        m_DefaultLogHandler.LogException(exception, context);
+    }
+}
