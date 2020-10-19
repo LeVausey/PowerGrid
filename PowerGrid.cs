@@ -9,8 +9,6 @@ using System.Diagnostics;
 
 public class PowerGrid : MonoBehaviour
 {
-    //private static string kTAG = "MyGameTag";
-    //private Logger myLogger;
 
     public int turn = 0;
     public int phase = 1;
@@ -26,6 +24,21 @@ public class PowerGrid : MonoBehaviour
     public Phases phases = new Phases();
     public Steps steps = new Steps();
 
+    //Player owned Resources
+    public List<Coal> playerCoal;
+    public List<Oil> playerOil;
+    public List<Garbage> playerGarbage;
+    public List<Nuclear> playerNuclear;
+
+    //Player Elektro 
+    public int playerElektro = 50;
+
+    //Player owned power plant cards
+    public List<Card> playerPowerPlants;
+
+    //Player owned cities
+    public List<City> playerBuildings;
+
     private static ILogger logger = Debug.unityLogger;
     private static string kTAG = "MyGameTag";
     private MyFileLogHandler myFileLogHandler;
@@ -34,7 +47,7 @@ public class PowerGrid : MonoBehaviour
     void Start()
     {
         myLogger = new Logger(new MyLogHandler());
-        myLogger.Log(kTAG, "MyGameClass Start.");
+        myLogger.Log(kTAG, playerBuildings, playerCoal, playerElektro, playerGarbage, playerNuclear, playerOil, playerPowerPlants, players, "MyGameClass Start.");
 
         map = new Map("Green", "Assets/data/germany-sectors.dat", "Assets/data/germany-connections.dat");
         map.FindAdjacentSectorData();
