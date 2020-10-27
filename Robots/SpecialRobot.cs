@@ -4,17 +4,34 @@ using UnityEngine;
 
 //public class GameStart
 //{
- 
+//set.playerelektro = 100
 //}
 
 //public class AlwaysLast
 //{
-
+    //var lastPlayerOrder = players.Select((x, y) => y).OrderBy(x => UnityEngine.Last.value).ToArray();
 //}
 
 //public class PAYSHALFFORPOWERPLANTS
 //{
 
+/**
+* Buys a card for this player
+*/
+//public void BuyCard(PowerPlantCard powerPlantCard)
+//{
+//    //They have enough money to buy the city: so add it to the list of owned cities
+//    if (playerElektro >= powerPlantCard.halfFaceValue)
+//    {
+//        //Add it to the list of owned cards
+//        playerPowerPlants.Add(powerPlantCard);
+
+//        //Deduct that amount from their money
+//        playerElektro -= powerPlantCard.faceValue;
+//    }
+//    else
+//        UnityEngine.Debug.Log("you dont have enough money!");
+//}
 //}
 
 //public class ALLCITIESCOSTTEN
@@ -63,6 +80,7 @@ using UnityEngine;
 
 //public class ALWAYSBUILDSFIRSTCITYFORZERO
 //{
+//if (playerCityAmount = 0)
 //    /**
 //    * Given a player, chooses an random city connected to one
 //    * of their currently owned cities
@@ -115,11 +133,11 @@ using UnityEngine;
 //            //powering cites
 //            foreach (var city in playerCities)
 //            {
-               
+
 //                //var powerCity = player.PowerCity();
 
 //                //PowerCity(powerCity) = player.PowerCity(poweredplayercities);
-               
+
 //                //for (poweredplayercities = 0)
 //                //{
 //                //    // code block to be executed
