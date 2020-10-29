@@ -12,7 +12,11 @@ public class RobotPickerOne
     // Start is called before the first frame update
     void Start()
     {
-        //GameObject randomPlayer = players[Random.Range(0, players.Count)];
+        //GameObject randomHead = players[Random.Range(0, players.Count)];
+        //GameObject randomTorso = players[Random.Range(0, players.Count)];
+        //GameObject randomHip = players[Random.Range(0, players.Count)];
+        //GameObject randomLegs = players[Random.Range(0, players.Count)];
+        //GameObject randomFeet = players[Random.Range(0, players.Count)];
     }
 
     // Update is called once per frame
@@ -34,7 +38,11 @@ public class RobotPickerTwo
     // Start is called before the first frame update
     void Start()
     {
-         //GameObject randomPlayer = players[Random.Range(0, players.Count)];
+        //GameObject randomHead = players[Random.Range(0, players.Count)];
+        //GameObject randomTorso = players[Random.Range(0, players.Count)];
+        //GameObject randomHip = players[Random.Range(0, players.Count)];
+        //GameObject randomLegs = players[Random.Range(0, players.Count)];
+        //GameObject randomFeet = players[Random.Range(0, players.Count)];
     }
 
     // Update is called once per frame
@@ -56,7 +64,11 @@ public class RobotPickerThree
     // Start is called before the first frame update
     void Start()
     {
-        //GameObject randomPlayer = players[Random.Range(0, players.Count)];
+        //GameObject randomHead = players[Random.Range(0, players.Count)];
+        //GameObject randomTorso = players[Random.Range(0, players.Count)];
+        //GameObject randomHip = players[Random.Range(0, players.Count)];
+        //GameObject randomLegs = players[Random.Range(0, players.Count)];
+        //GameObject randomFeet = players[Random.Range(0, players.Count)];
     }
 
     // Update is called once per frame
@@ -78,7 +90,11 @@ public class RobotPickerFour
     // Start is called before the first frame update
     void Start()
     {
-        //GameObject randomPlayer = players[Random.Range(0, players.Count)];
+        //GameObject randomHead = players[Random.Range(0, players.Count)];
+        //GameObject randomTorso = players[Random.Range(0, players.Count)];
+        //GameObject randomHip = players[Random.Range(0, players.Count)];
+        //GameObject randomLegs = players[Random.Range(0, players.Count)];
+        //GameObject randomFeet = players[Random.Range(0, players.Count)];
     }
 
     // Update is called once per frame
@@ -99,7 +115,11 @@ public class RobotPickerFive
     // Start is called before the first frame update
     void Start()
     {
-        //GameObject randomPlayer = players[Random.Range(0, players.Count)];
+        //GameObject randomHead = players[Random.Range(0, players.Count)];
+        //GameObject randomTorso = players[Random.Range(0, players.Count)];
+        //GameObject randomHip = players[Random.Range(0, players.Count)];
+        //GameObject randomLegs = players[Random.Range(0, players.Count)];
+        //GameObject randomFeet = players[Random.Range(0, players.Count)];
     }
 
     // Update is called once per frame
