@@ -7,6 +7,46 @@ using System;
 using UnityEngine;
 using System.Diagnostics;
 
+
+public class MyLogHandler : ILogHandler
+{
+    private FileStream m_FileStream;
+    private StreamWriter m_StreamWriter;
+    private ILogHandler m_DefaultLogHandler = UnityEngine.Debug.unityLogger.logHandler;
+
+    //Static instance for access from other files
+    public static MyLogHandler instance;
+
+    public MyLogHandler()
+    {
+        //Setup instance
+        instance = this;
+
+        //use like this (from other files):
+        //MyLogHandler.instance.Log("hello there");
+
+        string filePath = Application.persistentDataPath + "/MyLogs.txt";
+
+        m_FileStream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        m_StreamWriter = new StreamWriter(m_FileStream);
+
+        // Replace the default debug log handler
+        UnityEngine.Debug.unityLogger.logHandler = this;
+    }
+
+    public void LogFormat(LogType logType, UnityEngine.Object context, string format, params object[] args)
+    {
+        m_StreamWriter.WriteLine(String.Format(format, args));
+        m_StreamWriter.Flush();
+        m_DefaultLogHandler.LogFormat(logType, context, format, args);
+    }
+
+    public void LogException(Exception exception, UnityEngine.Object context)
+    {
+        m_DefaultLogHandler.LogException(exception, context);
+    }
+}
+
 public class PowerGrid : MonoBehaviour
 {
 
@@ -39,15 +79,14 @@ public class PowerGrid : MonoBehaviour
     //Player owned cities
     public List<City> playerBuildings;
 
-    private static ILogger logger = Debug.unityLogger;
+    private static ILogger logger = UnityEngine.Debug.unityLogger;
     private static string kTAG = "MyGameTag";
-    private MyFileLogHandler myFileLogHandler;
+    private MyLogHandler myFileLogHandler;
 
     // Start is called before the first frame update
     void Start()
     {
         myLogger = new Logger(new MyLogHandler());
-        myLogger.Log(kTAG, playerBuildings, playerCoal, playerElektro, playerGarbage, playerNuclear, playerOil, playerPowerPlants, players, "MyGameClass Start.");
 
         map = new Map("Green", "Assets/data/germany-sectors.dat", "Assets/data/germany-connections.dat");
         map.FindAdjacentSectorData();
@@ -71,7 +110,7 @@ public class PowerGrid : MonoBehaviour
         players.Add(new Player());
         players.Add(new Player());
         players.Add(new Player());
-
+        myLogger.Log(players, "Added new players");
         //UnityEngine.Debug.Log(setUp);
     }
 
@@ -246,34 +285,4 @@ public class scoringTrack
 //        //scoreText.text = "Score: " + currentScore;
 //    }
 
-}
-
-public class MyLogHandler : ILogHandler
-{
-    private FileStream m_FileStream;
-    private StreamWriter m_StreamWriter;
-    private ILogHandler m_DefaultLogHandler = Debug.unityLogger.logHandler;
-
-    public MyFileLogHandler()
-    {
-        string filePath = Application.persistentDataPath + "/MyLogs.txt";
-
-        m_FileStream = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-        m_StreamWriter = new StreamWriter(m_FileStream);
-
-        // Replace the default debug log handler
-        Debug.unityLogger.logHandler = this;
-    }
-
-    public void LogFormat(LogType logType, UnityEngine.Object context, string format, params object[] args)
-    {
-        m_StreamWriter.WriteLine(String.Format(format, args));
-        m_StreamWriter.Flush();
-        m_DefaultLogHandler.LogFormat(logType, context, format, args);
-    }
-
-    public void LogException(Exception exception, UnityEngine.Object context)
-    {
-        m_DefaultLogHandler.LogException(exception, context);
-    }
 }

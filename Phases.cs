@@ -74,6 +74,7 @@ public class Phases
         {
             //Get the player by their random order
             Player player = players[randomPlayerOrder[i]];
+            //MyLogHandler.instance.Log("hello there");
 
             turn++;
         }
@@ -146,6 +147,8 @@ public class Phases
                         //bidders.element(player) buys card
 
                         player.BuyCard();
+                        //MyLogHandler.instance.Log("hello there");
+
                         drawedCards = deck.Draw(0).ToList();
                     }
                 }
@@ -192,7 +195,9 @@ public class Phases
 
             //Buy the random city
             player.BuyCity(randomCity);
-           
+            //MyLogHandler.instance.Log("hello there");
+
+
         }
     }
 
@@ -207,11 +212,11 @@ public class Phases
             //powering cites
             foreach (var city in playerCities)
             {
-               
+
                 //var powerCity = player.PowerCity();
 
                 //PowerCity(powerCity) = player.PowerCity(poweredplayercities);
-               
+
                 //for (poweredplayercities = 0)
                 //{
                 //    // code block to be executed
@@ -337,6 +342,8 @@ public class Phases
                 //    // code block to be executed
                 //    add.playerelektro(150)
                 //}
+
+                //MyLogHandler.instance.Log("hello there");
             }
 
         }
