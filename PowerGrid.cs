@@ -80,8 +80,7 @@ public class PowerGrid : MonoBehaviour
     public List<City> playerBuildings;
 
     private static ILogger logger = UnityEngine.Debug.unityLogger;
-    private static string kTAG = "MyGameTag";
-    private MyLogHandler myFileLogHandler;
+    private Logger myLogger;
 
     // Start is called before the first frame update
     void Start()

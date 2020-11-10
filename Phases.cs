@@ -97,63 +97,63 @@ public class Phases
         phaseNum = 2;
 
         //playerOrder
-        foreach (var player in players)
-        {
-            SetSelectedPlant();
+        //foreach (var player in players)
+        //{
+        //    SetSelectedPlant();
 
-            if (selectedPlant == null)
-                return;
-            if (selectedPlant.purchased)//can't purchase already purchased plant
-                return;
-            if (p.cash < currentBid)
-                return;
-            if (p.powerPlants.Count >= maxPowerPlants)
-                return;
+        //    if (selectedPlant == null)
+        //        return;
+        //    if (selectedPlant.purchased)//can't purchase already purchased plant
+        //        return;
+        //    if (p.cash < currentBid)
+        //        return;
+        //    if (p.powerPlants.Count >= maxPowerPlants)
+        //        return;
 
-            ////Number of bidders initially
-            int toBid = UnityEngine.Random.Range(0, 1);
+        //    ////Number of bidders initially
+        //    int toBid = UnityEngine.Random.Range(0, 1);
 
-            if (toBid == 0)
-            {
-                //dont bid
-                bidButtonClicked = false;
-            }
+        //    if (toBid == 0)
+        //    {
+        //        //dont bid
+        //        bidButtonClicked = false;
+        //    }
 
-            if (toBid == 1)
-            {
-                bidButtonClicked = true;
-            }
+        //    if (toBid == 1)
+        //    {
+        //        bidButtonClicked = true;
+        //    }
 
-            if (bidButtonClicked == true)
-            {
-                bidders.Add(player);
-            }
+        //    if (bidButtonClicked == true)
+        //    {
+        //        bidders.Add(player);
+        //    }
 
 
-            //setting the range of the Elektro
-            foreach (int value in Enumerable.Range(0, (playerElektro)))
-            {
-                //Get the money of this player
-                var money = playerElektro[i];
+        //    //setting the range of the Elektro
+        //    foreach (int value in Enumerable.Range(0, (playerElektro)))
+        //    {
+        //        //Get the money of this player
+        //        var money = playerElektro[i];
 
-                //the bidding
-                while (toBid == 1 && playerElektro < current_bid + price_increment)
-                {
-                    //player bids w.e you want to do here probs players_money - current_bid + increment
-                    toBid = UnityEngine.Random.Range(0, 1);
+        //        //the bidding
+        //        while (toBid == 1 && playerElektro < current_bid + price_increment)
+        //        {
+        //            //player bids w.e you want to do here probs players_money - current_bid + increment
+        //            toBid = UnityEngine.Random.Range(0, 1);
 
-                    if (bidders.count == 1)
-                    {
-                        //bidders.element(player) buys card
+        //            if (bidders.count == 1)
+        //            {
+        //                //bidders.element(player) buys card
 
-                        player.BuyCard();
-                        //MyLogHandler.instance.Log("hello there");
+        //                player.BuyCard();
+        //                //MyLogHandler.instance.Log("hello there");
 
-                        drawedCards = deck.Draw(0).ToList();
-                    }
-                }
-            }
-        }  
+        //                drawedCards = deck.Draw(0).ToList();
+        //            }
+        //        }
+        //    }
+        //}  
     }
 
 
