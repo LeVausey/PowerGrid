@@ -110,7 +110,7 @@ public class PowerGrid : MonoBehaviour
         players.Add(new Player());
         players.Add(new Player());
         players.Add(new Player());
-        myLogger.Log(players, "Added new players");
+        //myLogger.Log(players, "Added new players");
         //UnityEngine.Debug.Log(setUp);
     }
 
@@ -129,10 +129,10 @@ public class PowerGrid : MonoBehaviour
 
         else if (step == 3)
             steps.StepThree();
-
+        //myLogger.Log(steps, "it is now step {0}");
         else
             EndGame();
-
+        //myLogger.Log(EndGame, "");
 
         foreach (var player in players)
         {
@@ -142,10 +142,12 @@ public class PowerGrid : MonoBehaviour
             //Step Two trigger
             if (playerScore > 7)
                 step = 2;
+            //myLogger.Log(EndGame, "");
 
             //End game if needed
             if (playerScore > 17)
                 EndGame();
+            //myLogger.Log(EndGame, "");
         }
 
 
@@ -205,28 +207,28 @@ public class PowerGrid : MonoBehaviour
     }
 
 
-    public void TraversalTest()
-    {
-        List<City> neighbour = new List<City>();
-        print(myCity.position);
+    //public void TraversalTest()
+    //{
+    //    List<City> neighbour = new List<City>();
+    //    print(myCity.position);
 
 
-        for (int i = 0; i < myCity.connections.Count; i++)
-        {
-            if (myCity.connections[i].outCity != myCity)
-            {
-                neighbour.Add(myCity.connections[i].outCity);
-            }
+    //    for (int i = 0; i < myCity.connections.Count; i++)
+    //    {
+    //        if (myCity.connections[i].outCity != myCity)
+    //        {
+    //            neighbour.Add(myCity.connections[i].outCity);
+    //        }
 
-            else
-            {
-                neighbour.Add(myCity.connections[i].outCity);
-            }
-        }
+    //        else
+    //        {
+    //            neighbour.Add(myCity.connections[i].outCity);
+    //        }
+    //    }
 
-        myCity = neighbour[UnityEngine.Random.Range(0, neighbour.Count)];
-        print(myCity.position);
-    }
+    //    myCity = neighbour[UnityEngine.Random.Range(0, neighbour.Count)];
+    //    print(myCity.position);
+    //}
 
 
     public void PhaseLoop()

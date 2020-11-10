@@ -174,6 +174,7 @@ public class Phases
 
         //    //Buy the random resource
         //    player.BuyResource(randomResource);
+            //MyLogHandler.instance.Log("hello there");
         //}
         //}
     }
