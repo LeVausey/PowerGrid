@@ -8,16 +8,16 @@ using UnityEngine;
 using System.Diagnostics;
 
 
-public class MyLogHandler : ILogHandler
+public class MyFileLogHandler : ILogHandler
 {
     private FileStream m_FileStream;
     private StreamWriter m_StreamWriter;
     private ILogHandler m_DefaultLogHandler = UnityEngine.Debug.unityLogger.logHandler;
 
     //Static instance for access from other files
-    public static MyLogHandler instance;
+    public static MyFileLogHandler instance;
 
-    public MyLogHandler()
+    public MyFileLogHandler()
     {
         //Setup instance
         instance = this;
@@ -80,12 +80,17 @@ public class PowerGrid : MonoBehaviour
     public List<City> playerBuildings;
 
     private static ILogger logger = UnityEngine.Debug.unityLogger;
-    private Logger myLogger;
+    private MyFileLogHandler myFileLogHandler;
+    private static string kTAG = "MyGameTag";
 
     // Start is called before the first frame update
     void Start()
     {
-        myLogger = new Logger(new MyLogHandler());
+        UnityEngine.Debug.Log(Application.persistentDataPath);
+
+        myFileLogHandler = new MyFileLogHandler();
+
+        logger.Log(kTAG, "MyGameClass Start.");
 
         map = new Map("Green", "Assets/data/germany-sectors.dat", "Assets/data/germany-connections.dat");
         map.FindAdjacentSectorData();
@@ -128,26 +133,25 @@ public class PowerGrid : MonoBehaviour
 
         else if (step == 3)
             steps.StepThree();
-        //myLogger.Log(steps, "it is now step {0}");
         else
             EndGame();
         //myLogger.Log(EndGame, "");
 
-        foreach (var player in players)
-        {
-            //Check if the game has been won:
-            int playerScore = player.playerBuildings.Count;
+        //foreach (var player in players)
+        //{
+        //    //Check if the game has been won:
+        //    int playerScore = player.playerBuildings.Count;
 
-            //Step Two trigger
-            if (playerScore > 7)
-                step = 2;
-            //myLogger.Log(EndGame, "");
+        //    //Step Two trigger
+        //    if (playerScore > 7)
+        //        step = 2;
+        //    //myLogger.Log(EndGame, "");
 
-            //End game if needed
-            if (playerScore > 17)
-                EndGame();
-            //myLogger.Log(EndGame, "");
-        }
+        //    //End game if needed
+        //    if (playerScore > 17)
+        //        EndGame();
+        //    //myLogger.Log(EndGame, "");
+        //}
 
 
         //if (Score >= 17)
