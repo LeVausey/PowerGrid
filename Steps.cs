@@ -124,22 +124,22 @@ public class Steps
         //var results = this.readResourceFromFile("Assets/data/resources.dat", "oil");
         foreach (var result in coal)
         {
-            UnityEngine.Debug.Log(result.faceValue);
+            //UnityEngine.Debug.Log(result.faceValue);
         }
 
         foreach (var result in oil)
         {
-            UnityEngine.Debug.Log(result.faceValue);
+            //UnityEngine.Debug.Log(result.faceValue);
         }
 
         foreach (var result in garbage)
         {
-            UnityEngine.Debug.Log(result.faceValue);
+            //UnityEngine.Debug.Log(result.faceValue);
         }
 
         foreach (var result in nuclear)
         {
-            UnityEngine.Debug.Log(result.faceValue);
+            //UnityEngine.Debug.Log(result.faceValue);
         }
 
         //Open building slot 3

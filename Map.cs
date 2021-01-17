@@ -108,6 +108,7 @@ public class Map
 
             //Make a connection
             var connection = new Connector(ref cityA, ref cityB, price);
+            //UnityEngine.Debug.Log(connection);
 
             //Add connection
             connections.Add(connection);
@@ -160,8 +161,8 @@ public class Map
 
                 //Split the line into chunks
                 var chunks = line.Split(' ');
-                //Debug.Log(line);
-                //Debug.Log(chunks.Length);
+                //UnityEngine.Debug.Log(line);
+                //UnityEngine.Debug.Log(chunks.Length);
 
                 //Cool, so now we just need to get the city name
                 var cityName = chunks[0].Trim().Replace(":", "");
@@ -174,6 +175,7 @@ public class Map
                 var city = new City(cityName, currentSector, new Vector2(x, y));
                 cities.Add(city);
                 cityHashMap.Add(cityName, city);
+                //UnityEngine.Debug.Log(cityName);
 
                 //Add this city to this sector
                 currentSector.cities.Add(city);                

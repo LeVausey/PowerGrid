@@ -55,13 +55,13 @@ public class SetUpPhase
         //Add the step card
         deck.Add(new StepThreeCard());
 
-        //Debug.Log("Drawed cards:");
+        Debug.Log("Drawed cards:");
 
         ////Print them out to test
         foreach (var card in drawedCards)
             Debug.Log(card);
 
-        //Debug.Log("Deck cards:");
+        Debug.Log("Deck cards:");
 
         //////Print them out to test
         foreach (var card in deck)
@@ -85,22 +85,22 @@ public class SetUpPhase
         //var results = this.readResourceFromFile("Assets/data/resources.dat", "oil");
         foreach (var result in coal)
         {
-            UnityEngine.Debug.Log(result.faceValue);
+            //UnityEngine.Debug.Log(result.faceValue);
         }
 
         foreach (var result in oil)
         {
-            UnityEngine.Debug.Log(result.faceValue);
+            //UnityEngine.Debug.Log(result.faceValue);
         }
 
         foreach (var result in garbage)
         {
-            UnityEngine.Debug.Log(result.faceValue);
+            //UnityEngine.Debug.Log(result.faceValue);
         }
 
         foreach (var result in nuclear)
         {
-            UnityEngine.Debug.Log(result.faceValue);
+            //UnityEngine.Debug.Log(result.faceValue);
         }
     }   
 
@@ -110,33 +110,33 @@ public class SetUpPhase
         ////List of chosen sectors
         var chosenSectors = new List<Sector>();
 
-        //Run through the amount of players
-        for (int i = 0; i < players.Count; i++)
-        {
-            //Choose a sector in the chosenSectors list if its is not empty
-            if (chosenSectors.Count == 0)
-                chosenSectors.Add(findARandomSector());
+        ////Run through the amount of players
+        //for (int i = 0; i < players.Count; i++)
+        //{
+        //    //Choose a sector in the chosenSectors list if its is not empty
+        //    if (chosenSectors.Count == 0)
+        //        chosenSectors.Add(findARandomSector());
 
-            else
-            {
-                //Choose a random sector in chosen sectors
-                var randomSector = chosenSectors[UnityEngine.Random.Range(0, chosenSectors.Count)];
+        //    else
+        //    {
+        //        //Choose a random sector in chosen sectors
+        //        var randomSector = chosenSectors[UnityEngine.Random.Range(0, chosenSectors.Count)];
 
-                //Choose a random adjacent sector
-                var randomAdj = randomSector.adjacentSectors[UnityEngine.Random.Range(0, chosenSectors.Count)];
+        //        //Choose a random adjacent sector
+        //        var randomAdj = randomSector.adjacentSectors[UnityEngine.Random.Range(0, chosenSectors.Count)];
 
-                //Check here if randomAdj is in chosenSectors, if it is, then we can't start the player
-                //here because its already been chosen 
-                //...
-                //while 
-                //{
+        //        //Check here if randomAdj is in chosenSectors, if it is, then we can't start the player
+        //        //here because its already been chosen 
+        //        //...
+        //        //while 
+        //        //{
 
-                //}
+        //        //}
 
-                //Otherwise;
-                chosenSectors.Add(randomAdj);
-            }
-        }
+        //        //Otherwise;
+        //        chosenSectors.Add(randomAdj);
+        //    }
+        //}
     }
 
     private List<Coal> getCoalFromFile(string path)

@@ -95,13 +95,22 @@ public class PowerGrid : MonoBehaviour
         map = new Map("Green", "Assets/data/germany-sectors.dat", "Assets/data/germany-connections.dat");
         map.FindAdjacentSectorData();
 
-        //foreach (var sector in map.sectors)
-        //{
-        //    UnityEngine.Debug.Log($"Sector {sector.name} is adjacent to:");
+        foreach (var sector in map.sectors)
+        {
+            UnityEngine.Debug.Log($"Sector {sector.name} is adjacent to:");
 
-        //    foreach (var adj in sector.adjacentSectors)
+            foreach (var adj in sector.adjacentSectors)
+                UnityEngine.Debug.Log("\t" + adj.name);
+        }
+
+        //foreach (var city in map.cities)
+        //{
+        //    UnityEngine.Debug.Log($"City {city.name} is adjacent to:");
+
+        //    foreach (var adj in city.adjacentSectors)
         //        UnityEngine.Debug.Log("\t" + adj.name);
         //}
+
 
         List<City> allCities = map.getCityList();
         myCity = allCities[0];
@@ -114,8 +123,7 @@ public class PowerGrid : MonoBehaviour
         players.Add(new Player());
         players.Add(new Player());
         players.Add(new Player());
-        //myLogger.Log(players, "Added new players");
-        //UnityEngine.Debug.Log(setUp);
+        //UnityEngine.Debug.Log(players);
     }
 
     // Update is called once per frame
