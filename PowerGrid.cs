@@ -47,6 +47,25 @@ public class MyFileLogHandler : ILogHandler
     }
 }
 
+[System.Serializable]
+class GameEvent
+{
+    public string eventType;
+
+    public string eventData;
+
+    public GameEvent(string type, string data)
+    {
+        this.eventType = type;
+        this.eventData = data;
+    }
+
+    public string ToJsonString()
+    {
+        return JsonUtility.ToJson(this);
+    }
+}
+
 public class PowerGrid : MonoBehaviour
 {
 
@@ -82,6 +101,9 @@ public class PowerGrid : MonoBehaviour
     private static ILogger logger = UnityEngine.Debug.unityLogger;
     private MyFileLogHandler myFileLogHandler;
     private static string kTAG = "MyGameTag";
+
+    //List of Game Events
+    //public List<GameEvent> gameEvents = new List<GameEvent>();
 
     // Start is called before the first frame update
     void Start()
@@ -128,10 +150,14 @@ public class PowerGrid : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-
+    {       
         PhaseLoop();
+
+        //Placed just after they've bought a city, make a new event:
+        var gameEvent = new GameEvent("BUY_CITY", boughtCityValue);
+
+        //Log it to the file
+        UnityDebug.Log(gameEvent.ToJsonString());
 
         if (step == 1)
             steps.StepOne();
